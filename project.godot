@@ -1,0 +1,109 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Building",
+"class": "Blacksmith",
+"language": "GDScript",
+"path": "res://Buildings/Blacksmith.gd"
+}, {
+"base": "Node",
+"class": "Building",
+"language": "GDScript",
+"path": "res://Buildings/Building.gd"
+}, {
+"base": "Building",
+"class": "FishingBoat",
+"language": "GDScript",
+"path": "res://Buildings/FishingBoat.gd"
+}, {
+"base": "Building",
+"class": "House",
+"language": "GDScript",
+"path": "res://Buildings/House.gd"
+}, {
+"base": "Building",
+"class": "HunterShanty",
+"language": "GDScript",
+"path": "res://Buildings/HunterShanty.gd"
+}, {
+"base": "Building",
+"class": "Mine",
+"language": "GDScript",
+"path": "res://Buildings/Mine.gd"
+}, {
+"base": "Building",
+"class": "Shop",
+"language": "GDScript",
+"path": "res://Buildings/Shop.gd"
+}, {
+"base": "Building",
+"class": "Well",
+"language": "GDScript",
+"path": "res://Buildings/Well.gd"
+}, {
+"base": "Building",
+"class": "Woodchop",
+"language": "GDScript",
+"path": "res://Buildings/Woodchop.gd"
+} ]
+_global_script_class_icons={
+"Blacksmith": "",
+"Building": "",
+"FishingBoat": "",
+"House": "",
+"HunterShanty": "",
+"Mine": "",
+"Shop": "",
+"Well": "",
+"Woodchop": ""
+}
+
+[application]
+
+config/name="BuildingGame"
+run/main_scene="res://Game/Game.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+PlayerResources="*res://Game/PlayerResources.gd"
+
+[display]
+
+window/size/width=480
+window/size/height=290
+window/size/resizable=false
+
+[input]
+
+hide_resources={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+hide_buttons={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":66,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+l_click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
