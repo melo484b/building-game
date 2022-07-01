@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hut.png-cfc21c3d0e77ad3861c580d213f188a0.stex"
+path="res://.import/cursor.png-97af3808e5ea1d52e364c821589a41df.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/hut.png"
-dest_files=[ "res://.import/hut.png-cfc21c3d0e77ad3861c580d213f188a0.stex" ]
+source_file="res://Sprites/cursor.png"
+dest_files=[ "res://.import/cursor.png-97af3808e5ea1d52e364c821589a41df.stex" ]
 
 [params]
 

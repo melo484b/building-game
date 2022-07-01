@@ -31,8 +31,11 @@ onready var shop = preload("res://Buildings/Shop.tscn")
 onready var woodchop = preload("res://Buildings/Woodchop.tscn")
 onready var hunter_shanty = preload("res://Buildings/HunterShanty.tscn")
 
+# Mouse cursor
+onready var cursor = $MouseCursor
+
 # Building the player has selected from the button bar
-var selected_item = null
+var selected_building = null
 
 # Get player input
 func _input(event):
@@ -49,10 +52,10 @@ func _input(event):
 			resources.visible = false
 	
 	if (Input.is_action_just_pressed("ui_cancel")):
-		selected_item = null
+		selected_building = null
 	
 	if (Input.is_action_just_pressed("l_click")):
-		place_building(selected_item)
+		place_building(selected_building)
 
 func _update():
 	pass
@@ -60,39 +63,46 @@ func _update():
 # TODO Make this talk to the TileMap for grid-placement
 # TODO Check that button panel is not located below before placement
 func place_building(building):
-	if (selected_item != null):
-		var building_instance = selected_item.instance()
+	if (selected_building != null):
+		var building_instance = selected_building.instance()
 		building_instance.position = get_viewport().get_mouse_position()
 		get_parent().add_child(building_instance)
+		# Add control to allow multiple placements of the same scene
+		selected_building = null
+		cursor.reset_cursor()
 
 
 func _on_WellButton_button_down():
-	selected_item = well
-
+	selected_building = well
+	cursor.set_cursor_texture(0)
 
 func _on_HunterButton_button_down():
-	selected_item = hunter_shanty
-
+	selected_building = hunter_shanty
+	cursor.set_cursor_texture(1)
 
 func _on_FisherButton_button_down():
-	selected_item = fishingboat
-
+	selected_building = fishingboat
+	cursor.set_cursor_texture(2)
 
 func _on_HouseButton_button_down():
-	selected_item = house
-
+	selected_building = house
+	cursor.set_cursor_texture(3)
 
 func _on_WoodButton_button_down():
-	selected_item = woodchop
-
+	selected_building = woodchop
+	cursor.set_cursor_texture(4)
 
 func _on_MineButton_button_down():
-	selected_item = mine
-
+	selected_building = mine
+	cursor.set_cursor_texture(5)
 
 func _on_BlacksmithButton_button_down():
-	selected_item = blacksmith
-
+	selected_building = blacksmith
+	cursor.set_cursor_texture(6)
 
 func _on_ShopButton_button_down():
-	selected_item = shop
+	selected_building = shop
+	cursor.set_cursor_texture(7)
+	
+func is_building_selected():
+	return !selected_building == null
