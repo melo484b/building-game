@@ -14,6 +14,9 @@ onready var mine_button = $ButtonPanel/HBoxContainer/MineButton
 onready var blacksmith_button = $ButtonPanel/HBoxContainer/BlacksmithButton
 onready var shop_button = $ButtonPanel/HBoxContainer/ShopButton
 
+# Player resources
+onready var player_resources = $PlayerResources
+
 # Label variables
 onready var water_label = $ResourcesPanel/HBoxContainer/AmountLabels/WaterLabel
 onready var food_label = $ResourcesPanel/HBoxContainer/AmountLabels/FoodLabel
@@ -34,9 +37,6 @@ onready var hunter_shanty = preload("res://Buildings/HunterShanty.tscn")
 
 # Mouse cursor
 onready var cursor = $MouseCursor
-
-func _update():
-	pass
 
 func _on_WellButton_button_down():
 	input_controller.set_selected_building(well)
@@ -69,3 +69,11 @@ func _on_BlacksmithButton_button_down():
 func _on_ShopButton_button_down():
 	input_controller.set_selected_building(shop)
 	cursor.set_cursor_texture(7)
+
+func update_labels():
+	water_label.text = str(PlayerResources.get_water())
+	food_label.text = str(PlayerResources.get_food())
+	wood_label.text = str(PlayerResources.get_wood())
+	stone_label.text = str(PlayerResources.get_stone())
+	metal_label.text = str(PlayerResources.get_metal())
+	gold_label.text = str(PlayerResources.get_gold())

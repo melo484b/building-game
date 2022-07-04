@@ -1,4 +1,5 @@
 extends Building
 class_name House
 
-# Later - will hold residents
+# Later - will hold residents & consume food
+

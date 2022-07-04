@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Sprites/house.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/gold.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://UI/MouseCursor.tscn" type="PackedScene" id=18]
 [ext_resource path="res://UI/InputController.gd" type="Script" id=19]
 [ext_resource path="res://UI/ResourcesPanel.gd" type="Script" id=20]
+[ext_resource path="res://Game/PlayerResources.gd" type="Script" id=21]
 
 [node name="HUD" type="Control"]
 anchor_right = 1.0
@@ -226,6 +227,9 @@ text = "0"
 
 [node name="InputController" type="Node" parent="."]
 script = ExtResource( 19 )
+
+[node name="PlayerResources" type="Node" parent="."]
+script = ExtResource( 21 )
 
 [connection signal="button_down" from="ButtonPanel/HBoxContainer/WellButton" to="." method="_on_WellButton_button_down"]
 [connection signal="button_down" from="ButtonPanel/HBoxContainer/HunterButton" to="." method="_on_HunterButton_button_down"]
