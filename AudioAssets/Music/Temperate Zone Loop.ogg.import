@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Temperate Zone Loop.ogg-8dcdd9aa200545416d6e5d586fcbcf2d.oggstr"
+
+[deps]
+
+source_file="res://AudioAssets/Music/Temperate Zone Loop.ogg"
+dest_files=[ "res://.import/Temperate Zone Loop.ogg-8dcdd9aa200545416d6e5d586fcbcf2d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

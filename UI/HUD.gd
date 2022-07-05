@@ -1,4 +1,10 @@
 extends Control
+
+signal is_building
+
+# Main scene
+onready var main = get_parent()
+
 # Panels - to allow hiding
 onready var buttons = $ButtonPanel
 onready var resources = $ResourcesPanel
@@ -25,49 +31,47 @@ onready var stone_label = $ResourcesPanel/HBoxContainer/AmountLabels/StoneLabel
 onready var metal_label = $ResourcesPanel/HBoxContainer/AmountLabels/MetalLabel
 onready var gold_label = $ResourcesPanel/HBoxContainer/AmountLabels/GoldLabel
 
-# Preloaded buildings
-onready var house = preload("res://Buildings/House.tscn")
-onready var mine = preload("res://Buildings/Mine.tscn")
-onready var blacksmith = preload("res://Buildings/Blacksmith.tscn")
-onready var fishingboat = preload("res://Buildings/FishingBoat.tscn")
-onready var well = preload("res://Buildings/Well.tscn")
-onready var shop = preload("res://Buildings/Shop.tscn")
-onready var woodchop = preload("res://Buildings/Woodchop.tscn")
-onready var hunter_shanty = preload("res://Buildings/HunterShanty.tscn")
-
 # Mouse cursor
 onready var cursor = $MouseCursor
 
 func _on_WellButton_button_down():
-	input_controller.set_selected_building(well)
+	emit_signal("is_building")
+	input_controller.set_selected_building(main.well)
 	cursor.set_cursor_texture(0)
 
 func _on_HunterButton_button_down():
-	input_controller.set_selected_building(hunter_shanty)
+	emit_signal("is_building")
+	input_controller.set_selected_building(main.hunter_shanty)
 	cursor.set_cursor_texture(1)
 
 func _on_FisherButton_button_down():
-	input_controller.set_selected_building(fishingboat)
+	emit_signal("is_building")
+	input_controller.set_selected_building(main.fishingboat)
 	cursor.set_cursor_texture(2)
 
 func _on_HouseButton_button_down():
-	input_controller.set_selected_building(house)
+	emit_signal("is_building")
+	input_controller.set_selected_building(main.house)
 	cursor.set_cursor_texture(3)
 
 func _on_WoodButton_button_down():
-	input_controller.set_selected_building(woodchop)
+	emit_signal("is_building")
+	input_controller.set_selected_building(main.woodchop)
 	cursor.set_cursor_texture(4)
 
 func _on_MineButton_button_down():
-	input_controller.set_selected_building(mine)
+	emit_signal("is_building")
+	input_controller.set_selected_building(main.mine)
 	cursor.set_cursor_texture(5)
 
 func _on_BlacksmithButton_button_down():
-	input_controller.set_selected_building(blacksmith)
+	emit_signal("is_building")
+	input_controller.set_selected_building(main.blacksmith)
 	cursor.set_cursor_texture(6)
 
 func _on_ShopButton_button_down():
-	input_controller.set_selected_building(shop)
+	emit_signal("is_building")
+	input_controller.set_selected_building(main.shop)
 	cursor.set_cursor_texture(7)
 
 func update_labels():

@@ -225,12 +225,13 @@ text = "0"
 
 [node name="MouseCursor" parent="." instance=ExtResource( 18 )]
 
-[node name="InputController" type="Node" parent="."]
-script = ExtResource( 19 )
-
 [node name="PlayerResources" type="Node" parent="."]
 script = ExtResource( 21 )
 
+[node name="InputController" type="Node" parent="."]
+script = ExtResource( 19 )
+
+[connection signal="is_building" from="." to="InputController" method="_on_HUD_is_building"]
 [connection signal="button_down" from="ButtonPanel/HBoxContainer/WellButton" to="." method="_on_WellButton_button_down"]
 [connection signal="button_down" from="ButtonPanel/HBoxContainer/HunterButton" to="." method="_on_HunterButton_button_down"]
 [connection signal="button_down" from="ButtonPanel/HBoxContainer/FisherButton" to="." method="_on_FisherButton_button_down"]
