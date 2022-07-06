@@ -7,7 +7,7 @@ var fish_in_the_sea = int(rand_range(20, 50))
 func _ready():
 	resource = FOOD
 
-# Override gather_food function
+# Override gather_food()
 func gather_food():
 	if (fish_in_the_sea > 0):
 		var current_food = PlayerResources.get_food()

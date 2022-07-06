@@ -68,7 +68,14 @@ func gather_stone():
 
 func make_metal():
 	var current_metal = PlayerResources.get_metal()
-	PlayerResources.set_metal(current_metal + 1)
+	var current_stone = PlayerResources.get_stone()
+	var metal_made = int(rand_range(1, 3));
+	var stone_used = metal_made * 2;
+	if (PlayerResources.get_stone() >= stone_used):
+		PlayerResources.set_metal(current_metal + metal_made)
+		PlayerResources.set_stone(current_stone - stone_used)
+	else:
+		print("Not enough stone.")
 
 func consume_resources():
 	pass
