@@ -13,7 +13,8 @@ enum {
 	WOOD,
 	STONE,
 	METAL,
-	GOLD	
+	GOLD,
+	RESIDENTS	
 	}
 
 func _init():
@@ -27,12 +28,10 @@ func _ready():
 	print("Building ready")
 	
 func on_timeout():
-	print("Timer done, adding resource: " + str(resource))
 	modify_resources(resource)
 	timer.start()
 
 # Call the appropriate function based on the resource type passed
-# Gold will be acquired via markets.
 func modify_resources(resource_type):
 	match resource_type:
 		WATER:
@@ -45,7 +44,9 @@ func modify_resources(resource_type):
 			gather_stone()
 		METAL:
 			make_metal()
-		null:
+		GOLD:
+			collect_taxes()
+		RESIDENTS:
 			consume_resources()
 		_:
 			print("Resource not set.")
@@ -76,6 +77,10 @@ func make_metal():
 		PlayerResources.set_stone(current_stone - stone_used)
 	else:
 		print("Not enough stone.")
+
+func collect_taxes():
+	var current_gold = PlayerResources.get_gold()
+	PlayerResources.set_gold(current_gold + 1)
 
 func consume_resources():
 	pass

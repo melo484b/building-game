@@ -5,8 +5,10 @@ signal starving
 
 var residents = 4
 
+onready var residentLabel = $ResidentCount/ResidentLabel
+
 func _ready():
-	resource = null
+	resource = RESIDENTS
 
 func consume_resources():
 	var current_water = PlayerResources.get_water()
@@ -22,3 +24,7 @@ func consume_resources():
 		residents -= 1
 		emit_signal("starving")
 		print("starving")
+	update_residentLabel()
+
+func update_residentLabel():
+	residentLabel.text = str(residents) + "/4"

@@ -223,6 +223,178 @@ margin_bottom = 80.0
 theme = ExtResource( 8 )
 text = "0"
 
+[node name="ShopPanel" type="Panel" parent="."]
+visible = false
+margin_left = 59.0
+margin_right = 123.0
+margin_bottom = 100.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme = ExtResource( 8 )
+script = ExtResource( 20 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShopPanel"]
+margin_left = 4.0
+margin_top = 16.0
+margin_right = 46.0
+margin_bottom = 98.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ResourceTextures" type="VBoxContainer" parent="ShopPanel/HBoxContainer"]
+margin_right = 8.0
+margin_bottom = 82.0
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 0.0
+custom_constants/separation = 6
+
+[node name="water" type="TextureRect" parent="ShopPanel/HBoxContainer/ResourceTextures"]
+margin_right = 8.0
+margin_bottom = 8.0
+hint_tooltip = "Water"
+theme = ExtResource( 8 )
+texture = ExtResource( 4 )
+
+[node name="food" type="TextureRect" parent="ShopPanel/HBoxContainer/ResourceTextures"]
+margin_top = 14.0
+margin_right = 8.0
+margin_bottom = 22.0
+hint_tooltip = "Food"
+theme = ExtResource( 8 )
+texture = ExtResource( 7 )
+
+[node name="wood" type="TextureRect" parent="ShopPanel/HBoxContainer/ResourceTextures"]
+margin_top = 28.0
+margin_right = 8.0
+margin_bottom = 36.0
+hint_tooltip = "Wood"
+theme = ExtResource( 8 )
+texture = ExtResource( 5 )
+
+[node name="stone" type="TextureRect" parent="ShopPanel/HBoxContainer/ResourceTextures"]
+margin_top = 42.0
+margin_right = 8.0
+margin_bottom = 50.0
+hint_tooltip = "Stone"
+theme = ExtResource( 8 )
+texture = ExtResource( 3 )
+
+[node name="metal" type="TextureRect" parent="ShopPanel/HBoxContainer/ResourceTextures"]
+margin_top = 56.0
+margin_right = 8.0
+margin_bottom = 64.0
+hint_tooltip = "Metal"
+theme = ExtResource( 8 )
+texture = ExtResource( 6 )
+
+[node name="gold" type="TextureRect" parent="ShopPanel/HBoxContainer/ResourceTextures"]
+margin_top = 70.0
+margin_right = 8.0
+margin_bottom = 78.0
+hint_tooltip = "Gold"
+theme = ExtResource( 8 )
+texture = ExtResource( 2 )
+
+[node name="PriceLabels" type="VBoxContainer" parent="ShopPanel/HBoxContainer"]
+margin_left = 12.0
+margin_right = 32.0
+margin_bottom = 82.0
+
+[node name="WaterLabel" type="Label" parent="ShopPanel/HBoxContainer/PriceLabels"]
+margin_right = 20.0
+margin_bottom = 10.0
+theme = ExtResource( 8 )
+text = "1g"
+align = 1
+
+[node name="FoodLabel" type="Label" parent="ShopPanel/HBoxContainer/PriceLabels"]
+margin_top = 14.0
+margin_right = 20.0
+margin_bottom = 24.0
+theme = ExtResource( 8 )
+text = "2g"
+align = 1
+
+[node name="WoodLabel" type="Label" parent="ShopPanel/HBoxContainer/PriceLabels"]
+margin_top = 28.0
+margin_right = 20.0
+margin_bottom = 38.0
+theme = ExtResource( 8 )
+text = "1g"
+align = 1
+
+[node name="StoneLabel" type="Label" parent="ShopPanel/HBoxContainer/PriceLabels"]
+margin_top = 42.0
+margin_right = 20.0
+margin_bottom = 52.0
+theme = ExtResource( 8 )
+text = "1g"
+align = 1
+
+[node name="MetalLabel" type="Label" parent="ShopPanel/HBoxContainer/PriceLabels"]
+margin_top = 56.0
+margin_right = 20.0
+margin_bottom = 66.0
+theme = ExtResource( 8 )
+text = "3g"
+align = 1
+
+[node name="GoldLabel" type="Label" parent="ShopPanel/HBoxContainer/PriceLabels"]
+margin_top = 70.0
+margin_right = 20.0
+margin_bottom = 80.0
+theme = ExtResource( 8 )
+text = "0g"
+align = 1
+
+[node name="SellButtons" type="VBoxContainer" parent="ShopPanel/HBoxContainer"]
+margin_left = 36.0
+margin_right = 56.0
+margin_bottom = 82.0
+
+[node name="WaterButton" type="Button" parent="ShopPanel/HBoxContainer/SellButtons"]
+margin_right = 20.0
+margin_bottom = 10.0
+theme = ExtResource( 8 )
+
+[node name="FoodButton" type="Button" parent="ShopPanel/HBoxContainer/SellButtons"]
+margin_top = 14.0
+margin_right = 20.0
+margin_bottom = 24.0
+theme = ExtResource( 8 )
+
+[node name="WoodButton" type="Button" parent="ShopPanel/HBoxContainer/SellButtons"]
+margin_top = 28.0
+margin_right = 20.0
+margin_bottom = 38.0
+theme = ExtResource( 8 )
+
+[node name="StoneButton" type="Button" parent="ShopPanel/HBoxContainer/SellButtons"]
+margin_top = 42.0
+margin_right = 20.0
+margin_bottom = 52.0
+theme = ExtResource( 8 )
+
+[node name="MetalButton" type="Button" parent="ShopPanel/HBoxContainer/SellButtons"]
+margin_top = 56.0
+margin_right = 20.0
+margin_bottom = 66.0
+theme = ExtResource( 8 )
+
+[node name="GoldButton" type="Button" parent="ShopPanel/HBoxContainer/SellButtons"]
+margin_top = 70.0
+margin_right = 20.0
+margin_bottom = 80.0
+theme = ExtResource( 8 )
+text = "     "
+
+[node name="Label" type="Label" parent="ShopPanel"]
+margin_left = 4.0
+margin_top = 2.0
+margin_right = 44.0
+margin_bottom = 12.0
+text = "Shop"
+
 [node name="MouseCursor" parent="." instance=ExtResource( 18 )]
 
 [node name="PlayerResources" type="Node" parent="."]
