@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fishingBoat_hl.png-7021375cf423fe59e3390dc6351e1a25.stex"
+path="res://.import/fishingboat_hl.png-b80d8e493f1b5816368393fa30f98184.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/fishingBoat_hl.png"
-dest_files=[ "res://.import/fishingBoat_hl.png-7021375cf423fe59e3390dc6351e1a25.stex" ]
+source_file="res://Sprites/fishingboat_hl.png"
+dest_files=[ "res://.import/fishingboat_hl.png-b80d8e493f1b5816368393fa30f98184.stex" ]
 
 [params]
 
