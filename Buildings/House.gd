@@ -9,6 +9,14 @@ onready var residentLabel = $ResidentCount/ResidentLabel
 
 func _ready():
 	resource = RESIDENTS
+	
+	resource_requirements = {
+	"water": 4,
+	"food": 4,
+	"wood": 10,
+	"stone": 10,
+	}
+	resource_keys = resource_requirements.keys()
 
 func consume_resources():
 	var current_water = PlayerResources.get_water()
