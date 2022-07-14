@@ -3,10 +3,12 @@ class_name Shop
 
 signal shop_menu
 
+var recipe = "shop"
+
 func _ready():
 	resource = GOLD
-	timer.wait_time = 5
 	# Each shop build will increase the player's gold by 1 every 5 seconds
+	timer.wait_time = 5
 
 func _event(event):
 	# Check for location of click compared to the Sprite

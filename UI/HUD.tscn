@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Sprites/house.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/gold.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://UI/InputController.gd" type="Script" id=19]
 [ext_resource path="res://UI/ResourcesPanel.gd" type="Script" id=20]
 [ext_resource path="res://Game/PlayerResources.gd" type="Script" id=21]
+[ext_resource path="res://UI/BuildingRecipes.gd" type="Script" id=22]
 
 [node name="HUD" type="Control"]
 anchor_right = 1.0
@@ -402,6 +403,9 @@ script = ExtResource( 21 )
 
 [node name="InputController" type="Node" parent="."]
 script = ExtResource( 19 )
+
+[node name="BuildingRecipes" type="Node" parent="."]
+script = ExtResource( 22 )
 
 [connection signal="is_building" from="." to="InputController" method="_on_HUD_is_building"]
 [connection signal="button_down" from="ButtonPanel/HBoxContainer/WellButton" to="." method="_on_WellButton_button_down"]

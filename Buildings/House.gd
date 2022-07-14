@@ -3,21 +3,16 @@ class_name House
 
 signal starving
 
+var recipe = "house"
+
 var residents = 4
 
 onready var residentLabel = $ResidentCount/ResidentLabel
 
 func _ready():
 	resource = RESIDENTS
-	
-	resource_requirements = {
-	"water": 4,
-	"food": 4,
-	"wood": 10,
-	"stone": 10,
-	}
-	resource_keys = resource_requirements.keys()
 
+# Override
 func consume_resources():
 	var current_water = PlayerResources.get_water()
 	var current_food = PlayerResources.get_food()

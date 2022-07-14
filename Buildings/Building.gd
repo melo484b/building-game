@@ -17,13 +17,6 @@ enum {
 	RESIDENTS	
 	}
 
-var resources_satisfied = true
-
-# Resource requirements dictionary to override in children
-var resource_requirements = {}
-
-var resource_keys
-
 func _init():
 	timer = Timer.new()
 	add_child(timer)
@@ -91,8 +84,3 @@ func collect_taxes():
 
 func consume_resources():
 	pass
-
-# Return true if the PlayerResources contain enough materials
-func check_for_required_materials():
-	for resource in resource_keys:
-		pass

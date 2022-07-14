@@ -4,6 +4,7 @@ onready var buttons = get_parent().get_node("ButtonPanel")
 onready var resources = get_parent().get_node("ResourcesPanel")
 onready var cursor = get_parent().get_node("MouseCursor")
 onready var hud = get_parent()
+onready var recipes = get_parent().get_node("BuildingRecipes")
 
 var building = false
 
@@ -35,13 +36,15 @@ func _input(event):
 func place_building(building):
 	if (hud.main.selected_building != null):
 		var building_instance = hud.main.selected_building.instance()
-		building_instance.position = get_viewport().get_mouse_position()
-		get_parent().get_parent().add_child(building_instance)
-		# Add control to allow multiple placements of the same scene
-		hud.main.selected_building = null
-		building = false
-		buttons.set_visibility(true)
-		cursor.reset_cursor()
+		if (recipes.compare_requirements(building_instance.recipe)):
+			building_instance.position = get_viewport().get_mouse_position()
+			get_parent().get_parent().add_child(building_instance)
+			recipes.use_recipe_ingredients(building_instance.recipe)
+			# Add control to allow multiple placements of the same scene
+			cancel_building()
+		else:
+			print("Not enough materials.")
+			cancel_building()
 
 func is_building_selected():
 	return !hud.main.selected_building == null
@@ -58,3 +61,6 @@ func cancel_building():
 	cursor.reset_cursor()
 	building = false
 	buttons.set_visibility(true)
+	
+func check_for_required_materials(recipe_name):
+	pass

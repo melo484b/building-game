@@ -1,13 +1,15 @@
 extends Building
 class_name FishingBoat
 
+var recipe = "fishingboat"
+
 # Set the amount of fish available in the area to an amount between 20 & 50
 var fish_in_the_sea = int(rand_range(20, 50))
 
 func _ready():
 	resource = FOOD
 
-# Override gather_food()
+# Override
 func gather_food():
 	if (fish_in_the_sea > 0):
 		var current_food = PlayerResources.get_food()

@@ -4,7 +4,7 @@ var resources_available = {
 	"water": 0,
 	"food": 0,
 	"wood": 0,
-	"stone": 0,
+	"stone": 50,
 	"metal": 0,
 	"gold": 0
 	}
@@ -95,3 +95,9 @@ func set_resource_by_name(resource_name, new_resource_amount):
 		set_gold(new_resource_amount)
 	else:
 		print("No valid material to set.")
+
+func check_resource(resource_name : String, amount : int):
+	if (int(resources_available[resource_name]) > amount):
+		return true
+	else:
+		return false
