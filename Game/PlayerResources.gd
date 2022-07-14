@@ -1,12 +1,12 @@
 extends Node
 
 var resources_available = {
-	"water": 0,
-	"food": 0,
-	"wood": 0,
+	"water": 50,
+	"food": 50,
+	"wood": 50,
 	"stone": 50,
-	"metal": 0,
-	"gold": 0
+	"metal": 50,
+	"gold": 50
 	}
 
 func set_water(new_value):
