@@ -5,8 +5,8 @@ var resources_available = {
 	"food": 50,
 	"wood": 50,
 	"stone": 50,
-	"metal": 50,
-	"gold": 50
+	"metal": 0,
+	"gold": 0
 	}
 
 func set_water(new_value):

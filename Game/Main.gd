@@ -17,5 +17,8 @@ onready var hunter_shanty = preload("res://Buildings/HunterShanty.tscn")
 # Building the player has selected from the button bar
 var selected_building = null
 
+func _ready():
+	hud.update_labels()
+
 func _on_TickTimer_timeout():
 	hud.update_labels()

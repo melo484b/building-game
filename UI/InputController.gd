@@ -33,6 +33,9 @@ func _input(event):
 
 # TODO Make this talk to the TileMap for grid-placement
 # TODO Check that button panel is not located below before placement
+# Checks if the player has selected a building
+# Checks if player has enough resources to construct the building
+# Checks if player is holding the place-multiple button before canceling building
 func place_building(building):
 	if (hud.main.selected_building != null):
 		var building_instance = hud.main.selected_building.instance()
@@ -40,8 +43,10 @@ func place_building(building):
 			building_instance.position = get_viewport().get_mouse_position()
 			get_parent().get_parent().add_child(building_instance)
 			recipes.use_recipe_ingredients(building_instance.recipe)
-			# Add control to allow multiple placements of the same scene
-			cancel_building()
+			if (Input.is_action_pressed("place_multiple")):
+				pass
+			else:
+				cancel_building()
 		else:
 			print("Not enough materials.")
 			cancel_building()

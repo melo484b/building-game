@@ -54,8 +54,12 @@ margin_bottom = 32.0
 hint_tooltip = "Well
 
 10 Stone"
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource( 8 )
+custom_constants/hseparation = 0
 icon = ExtResource( 9 )
+expand_icon = true
 
 [node name="HunterButton" type="Button" parent="ButtonPanel/HBoxContainer"]
 margin_left = 18.0
