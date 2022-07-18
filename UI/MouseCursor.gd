@@ -2,16 +2,21 @@ extends CanvasLayer
 
 # Children
 onready var cursor_sprite = $CursorSprite
+onready var selection_sprite = $SelectionSprite
 
 # Building sprites
 onready var well_sprite = preload("res://Sprites/well.png")
 onready var hunter_sprite = preload("res://Sprites/huntingShanty.png")
-onready var fisher_sprite = preload("res://Sprites/fishingBoat.png")
+onready var fisher_sprite = preload("res://Sprites/fishingboat.png")
 onready var house_sprite = preload("res://Sprites/house.png")
 onready var woodchop_sprite = preload("res://Sprites/woodchop.png")
 onready var mine_sprite = preload("res://Sprites/mine.png")
 onready var blacksmith_sprite = preload("res://Sprites/blacksmith.png")
 onready var shop_sprite = preload("res://Sprites/shop.png")
+
+# InputController
+onready var input = get_parent().get_node("InputController")
+
 # Original cursor
 onready var original_cursor_sprite = preload("res://Sprites/cursor.png")
 var sprite_array = []
@@ -24,7 +29,12 @@ func _ready():
 	sprite_array = [well_sprite, hunter_sprite, fisher_sprite, house_sprite, woodchop_sprite, mine_sprite, blacksmith_sprite, shop_sprite, original_cursor_sprite]
 
 func _process(delta):
-	cursor_sprite.global_position = cursor_sprite.get_global_mouse_position()
+	if (input.grid_snap):
+		selection_sprite.visible = true
+		cursor_sprite.global_position = input.hud.grid_snap()
+		selection_sprite.global_position = input.hud.grid_snap()
+	else:
+		cursor_sprite.global_position = cursor_sprite.get_global_mouse_position()
 
 func set_cursor_texture(index):
 	if (sprite_array[index] != null):
@@ -34,3 +44,4 @@ func set_cursor_texture(index):
 
 func reset_cursor():
 	set_cursor_texture(8)
+	selection_sprite.visible = false

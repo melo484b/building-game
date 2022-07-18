@@ -81,3 +81,7 @@ func update_labels():
 	stone_label.text = str(PlayerResources.get_stone())
 	metal_label.text = str(PlayerResources.get_metal())
 	gold_label.text = str(PlayerResources.get_gold())
+
+func grid_snap():
+	var mouse_pos = main.world.world_to_map(get_global_mouse_position())
+	return main.world.map_to_world(mouse_pos)

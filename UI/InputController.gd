@@ -1,5 +1,6 @@
 extends Node
 
+# Relevant node access
 onready var buttons = get_parent().get_node("ButtonPanel")
 onready var resources = get_parent().get_node("ResourcesPanel")
 onready var cursor = get_parent().get_node("MouseCursor")
@@ -7,6 +8,8 @@ onready var hud = get_parent()
 onready var recipes = get_parent().get_node("BuildingRecipes")
 
 var building = false
+
+var grid_snap = false
 
 func _ready():
 	pass
@@ -40,7 +43,7 @@ func place_building(building):
 	if (hud.main.selected_building != null):
 		var building_instance = hud.main.selected_building.instance()
 		if (recipes.compare_requirements(building_instance.recipe)):
-			building_instance.position = get_viewport().get_mouse_position()
+			building_instance.position = hud.grid_snap()
 			get_parent().get_parent().add_child(building_instance)
 			recipes.use_recipe_ingredients(building_instance.recipe)
 			if (Input.is_action_pressed("place_multiple")):
@@ -57,15 +60,19 @@ func is_building_selected():
 func set_selected_building(building):
 	hud.main.selected_building = building
 
+# Make the mouse move on a grid
 func _on_HUD_is_building():
 	buttons.set_visibility(false)
 	building = true
+	grid_snap = true
 
 func cancel_building():
 	hud.main.selected_building = null
 	cursor.reset_cursor()
 	building = false
+	grid_snap = false
 	buttons.set_visibility(true)
 	
 func check_for_required_materials(recipe_name):
 	pass
+	
