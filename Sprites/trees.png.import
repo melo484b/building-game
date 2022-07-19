@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/desertSand.png-872b8d81f98b0b416acc6d8d77241550.stex"
+path="res://.import/trees.png-628aa78224c144453d154e6ac36fdc6f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/desertSand.png"
-dest_files=[ "res://.import/desertSand.png-872b8d81f98b0b416acc6d8d77241550.stex" ]
+source_file="res://Sprites/trees.png"
+dest_files=[ "res://.import/trees.png-628aa78224c144453d154e6ac36fdc6f.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
