@@ -29,30 +29,31 @@ func _input(event):
 			resources.set_visibility(false)
 	
 	if (Input.is_action_just_pressed("ui_cancel") || Input.is_action_just_pressed("r_click")):
-		cancel_building()
+		end_building()
 	
 	if (Input.is_action_just_pressed("l_click")):
 		place_building(hud.main.selected_building)
 
-# TODO Make this talk to the TileMap for grid-placement
-# TODO Check that button panel is not located below before placement
 # Checks if the player has selected a building
 # Checks if player has enough resources to construct the building
-# Checks if player is holding the place-multiple button before canceling building
+# Checks if player is holding the place-multiple button before ending building
 func place_building(building):
 	if (hud.main.selected_building != null):
 		var building_instance = hud.main.selected_building.instance()
-		if (recipes.compare_requirements(building_instance.recipe)):
-			building_instance.position = hud.grid_snap()
-			get_parent().get_parent().add_child(building_instance)
-			recipes.use_recipe_ingredients(building_instance.recipe)
-			if (Input.is_action_pressed("place_multiple")):
-				pass
+		if (building_instance.check_tile(hud.main.get_current_tile(), building_instance.compatible_tiles)):
+			if (recipes.compare_requirements(building_instance.recipe)):
+				building_instance.position = hud.grid_snap()
+				get_parent().get_parent().add_child(building_instance)
+				recipes.use_recipe_ingredients(building_instance.recipe)
+				if (Input.is_action_pressed("place_multiple")):
+					pass
+				else:
+					end_building()
 			else:
-				cancel_building()
+				print("Not enough materials.")
+				end_building()
 		else:
-			print("Not enough materials.")
-			cancel_building()
+			print("Invalid placement")
 
 func is_building_selected():
 	return !hud.main.selected_building == null
@@ -66,13 +67,9 @@ func _on_HUD_is_building():
 	building = true
 	grid_snap = true
 
-func cancel_building():
+func end_building():
 	hud.main.selected_building = null
 	cursor.reset_cursor()
 	building = false
 	grid_snap = false
 	buttons.set_visibility(true)
-	
-func check_for_required_materials(recipe_name):
-	pass
-	

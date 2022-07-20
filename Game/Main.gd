@@ -17,8 +17,16 @@ onready var hunter_shanty = preload("res://Buildings/HunterShanty.tscn")
 # Building the player has selected from the button bar
 var selected_building = null
 
+# Tile the cursor is positioned over
+var current_tile = null
+
 func _ready():
 	hud.update_labels()
 
 func _on_TickTimer_timeout():
 	hud.update_labels()
+
+func get_current_tile():
+	current_tile = world.get_cellv(world.world_to_map(get_global_mouse_position()))
+	return current_tile
+

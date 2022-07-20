@@ -6,6 +6,11 @@ var timer
 # Resource that will be added to the PlayerResources
 var resource = null
 
+# Compatible tiles are as follows:
+# 12 - grass
+# 14 - sand
+# 27 - water
+
 # Enum to hold resource types
 enum {
 	WATER,
@@ -84,3 +89,7 @@ func collect_taxes():
 
 func consume_resources():
 	pass
+
+# Used by children to compare compatible tiles to tiles returned by main's get_current_tile()
+func check_tile(tile_index, array_to_check):
+	return tile_index in array_to_check

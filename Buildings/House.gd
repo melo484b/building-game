@@ -7,6 +7,8 @@ var recipe = "house"
 
 var residents = 4
 
+var compatible_tiles = [12, 14]
+
 onready var residentLabel = $ResidentCount/ResidentLabel
 
 func _ready():
@@ -31,3 +33,6 @@ func consume_resources():
 
 func update_residentLabel():
 	residentLabel.text = str(residents) + "/4"
+
+func get_compatible_tiles():
+	return compatible_tiles

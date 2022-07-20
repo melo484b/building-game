@@ -5,6 +5,8 @@ signal shop_menu
 
 var recipe = "shop"
 
+var compatible_tiles = [12, 14]
+
 func _ready():
 	resource = GOLD
 	# Each shop build will increase the player's gold by 1 every 5 seconds

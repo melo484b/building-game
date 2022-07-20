@@ -6,6 +6,8 @@ var recipe = "fishingboat"
 # Set the amount of fish available in the area to an amount between 20 & 50
 var fish_in_the_sea = int(rand_range(20, 50))
 
+var compatible_tiles = [27]
+
 func _ready():
 	resource = FOOD
 

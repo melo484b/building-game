@@ -45,3 +45,4 @@ func set_cursor_texture(index):
 func reset_cursor():
 	set_cursor_texture(8)
 	selection_sprite.visible = false
+	
