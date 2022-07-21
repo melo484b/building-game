@@ -1,10 +1,10 @@
 extends Node
 class_name Building
 
-var timer
+var timer: Timer
 
 # Resource that will be added to the PlayerResources
-var resource = null
+var resource: int = -1
 
 # Compatible tiles are as follows:
 # 12 - grass
@@ -37,7 +37,7 @@ func on_timeout():
 	timer.start()
 
 # Call the appropriate function based on the resource type passed
-func modify_resources(resource_type):
+func modify_resources(resource_type) -> void:
 	match resource_type:
 		WATER:
 			gather_water()
@@ -56,23 +56,23 @@ func modify_resources(resource_type):
 		_:
 			print("Resource not set.")
 			
-func gather_water():
+func gather_water() -> void:
 	var current_water = PlayerResources.get_water()
 	PlayerResources.set_water(current_water + 1)
 
-func gather_food():
+func gather_food() -> void:
 	var current_food = PlayerResources.get_food()
 	PlayerResources.set_food(current_food + 1)
 
-func gather_wood():
+func gather_wood() -> void:
 	var current_wood = PlayerResources.get_wood()
 	PlayerResources.set_wood(current_wood + 1)
 
-func gather_stone():
+func gather_stone() -> void:
 	var current_stone = PlayerResources.get_stone()
 	PlayerResources.set_stone(current_stone + 1)
 
-func make_metal():
+func make_metal() -> void:
 	var current_metal = PlayerResources.get_metal()
 	var current_stone = PlayerResources.get_stone()
 	var metal_made = int(rand_range(1, 3));
@@ -83,13 +83,13 @@ func make_metal():
 	else:
 		print("Not enough stone.")
 
-func collect_taxes():
+func collect_taxes() -> void:
 	var current_gold = PlayerResources.get_gold()
 	PlayerResources.set_gold(current_gold + 1)
 
-func consume_resources():
+func consume_resources() -> void:
 	pass
 
 # Used by children to compare compatible tiles to tiles returned by main's get_current_tile()
-func check_tile(tile_index, array_to_check):
+func check_tile(tile_index, array_to_check) -> bool:
 	return tile_index in array_to_check

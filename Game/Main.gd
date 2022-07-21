@@ -5,28 +5,28 @@ onready var hud = $HUD
 onready var world = $WorldMap
 
 # Preloaded buildings
-onready var house = preload("res://Buildings/House.tscn")
-onready var mine = preload("res://Buildings/Mine.tscn")
-onready var blacksmith = preload("res://Buildings/Blacksmith.tscn")
-onready var fishingboat = preload("res://Buildings/FishingBoat.tscn")
-onready var well = preload("res://Buildings/Well.tscn")
-onready var shop = preload("res://Buildings/Shop.tscn")
-onready var woodchop = preload("res://Buildings/Woodchop.tscn")
-onready var hunter_shanty = preload("res://Buildings/HunterShanty.tscn")
+onready var house: PackedScene = preload("res://Buildings/House.tscn")
+onready var mine: PackedScene = preload("res://Buildings/Mine.tscn")
+onready var blacksmith: PackedScene = preload("res://Buildings/Blacksmith.tscn")
+onready var fishingboat: PackedScene = preload("res://Buildings/FishingBoat.tscn")
+onready var well: PackedScene = preload("res://Buildings/Well.tscn")
+onready var shop: PackedScene = preload("res://Buildings/Shop.tscn")
+onready var woodchop: PackedScene = preload("res://Buildings/Woodchop.tscn")
+onready var hunter_shanty: PackedScene = preload("res://Buildings/HunterShanty.tscn")
 
 # Building the player has selected from the button bar
-var selected_building = null
+var selected_building: PackedScene = null
 
 # Tile the cursor is positioned over
-var current_tile = null
+var current_tile: int = -1
 
 func _ready():
 	hud.update_labels()
 
-func _on_TickTimer_timeout():
+func _on_TickTimer_timeout() -> void:
 	hud.update_labels()
 
-func get_current_tile():
-	current_tile = world.get_cellv(world.world_to_map(get_global_mouse_position()))
-	return current_tile
+func get_current_tile() -> int:
+	self.current_tile = world.get_cellv(world.world_to_map(get_global_mouse_position()))
+	return self.current_tile
 

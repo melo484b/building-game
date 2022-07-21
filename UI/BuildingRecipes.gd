@@ -1,6 +1,6 @@
 extends Node
 
-var recipe_book = {
+var recipe_book: Dictionary = {
 	"well": {"stone": 10},
 	"hunter_shanty": {"water": 2, "food": 2, "wood": 10},
 	"fishingboat": {"wood": 10},
@@ -11,7 +11,7 @@ var recipe_book = {
 	"shop": {"wood": 10, "stone": 10}
 }
 
-func compare_requirements(recipe_name):
+func compare_requirements(recipe_name) -> bool:
 	var key_count = 0
 	var positives = 0
 	for key in recipe_book[recipe_name].keys():
@@ -20,15 +20,17 @@ func compare_requirements(recipe_name):
 			positives += 1
 	if (positives == key_count):
 		return true
+	else:
+		return false
 
-func get_ingredient_amount(recipe_name, ingredient_name):
+func get_ingredient_amount(recipe_name, ingredient_name) -> int:
 	return recipe_book[recipe_name][ingredient_name]
 
-func use_recipe_ingredients(recipe_name):
+func use_recipe_ingredients(recipe_name) -> void:
 	for ingredient in recipe_book[recipe_name].keys():
 		PlayerResources.set_resource_by_name(ingredient, PlayerResources.get_resource_by_name(ingredient) - get_ingredient_amount(recipe_name, ingredient))
 
-func recipe_tooltip(recipe_name):
+func recipe_tooltip(recipe_name) -> String:
 	var tooltip_string = recipe_name + "\n\n"
 	for ingredient in recipe_book[recipe_name]:
 		tooltip_string += str(recipe_book[recipe_name][ingredient]) + " " + str(ingredient) + "\n\n"

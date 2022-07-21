@@ -1,9 +1,9 @@
 extends Building
 class_name Well
 
-var recipe = "well"
+var recipe: String = "well"
 
-var compatible_tiles = [12]
+var compatible_tiles: Array = [12]
 
 func _ready():
 	resource = WATER

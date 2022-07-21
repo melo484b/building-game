@@ -3,19 +3,19 @@ class_name House
 
 signal starving
 
-var recipe = "house"
+var recipe: String = "house"
 
-var residents = 4
+var residents: int = 4
 
-var compatible_tiles = [12, 14]
+var compatible_tiles: Array = [12, 14]
 
-onready var residentLabel = $ResidentCount/ResidentLabel
+onready var residentLabel: Label = $ResidentCount/ResidentLabel
 
 func _ready():
 	resource = RESIDENTS
 
 # Override
-func consume_resources():
+func consume_resources() -> void:
 	var current_water = PlayerResources.get_water()
 	var current_food = PlayerResources.get_food()
 	if (current_water > 4 && current_food > 4):
@@ -31,8 +31,8 @@ func consume_resources():
 		print("starving")
 	update_residentLabel()
 
-func update_residentLabel():
+func update_residentLabel() -> void:
 	residentLabel.text = str(residents) + "/4"
 
-func get_compatible_tiles():
+func get_compatible_tiles() -> Array:
 	return compatible_tiles

@@ -1,11 +1,11 @@
 extends Panel
 
-onready var recipes = get_parent().get_node("BuildingRecipes")
+onready var recipes: Node = get_parent().get_node("BuildingRecipes")
 
-func set_visibility(visibility_bool):
+func set_visibility(visibility_bool) -> void:
 	self.visible = visibility_bool
 	
-func get_visibility():
+func get_visibility() -> bool:
 	return self.visible == true
 
 func _ready():

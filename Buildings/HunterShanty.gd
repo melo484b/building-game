@@ -1,9 +1,9 @@
 extends Building
 class_name HunterShanty
 
-var recipe = "hunter_shanty"
+var recipe: String = "hunter_shanty"
 
-var compatible_tiles = [12]
+var compatible_tiles: Array = [12]
 
 # Override Building timer
 func _init():

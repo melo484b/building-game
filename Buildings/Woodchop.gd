@@ -1,9 +1,9 @@
 extends Building
 class_name Woodchop
 
-var recipe = "woodchop"
+var recipe: String = "woodchop"
 
-var compatible_tiles = [12]
+var compatible_tiles: Array = [12]
 
 # Override Building timer
 func _init():

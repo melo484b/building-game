@@ -1,9 +1,9 @@
 extends Building
 class_name Mine
 
-var recipe = "mine"
+var recipe: String = "mine"
 
-var compatible_tiles = [14]
+var compatible_tiles: Array = [14]
 
 # Override Building timer
 func _init():
