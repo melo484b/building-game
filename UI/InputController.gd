@@ -6,6 +6,7 @@ onready var resources: Panel = get_parent().get_node("ResourcesPanel")
 onready var cursor: Node = get_parent().get_node("MouseCursor")
 onready var hud: Control = get_parent()
 onready var recipes: Node = get_parent().get_node("BuildingRecipes")
+onready var dev: Panel = get_parent().get_node("DevPanel")
 
 var is_building: bool = false
 
@@ -33,6 +34,13 @@ func _input(_event):
 	
 	if (Input.is_action_just_pressed("l_click")):
 		place_building(hud.main.selected_building)
+	
+	if (Input.is_action_just_pressed("dev_mode")):
+		if (dev.get_visibility()):
+			dev.hide()
+		else:
+			dev.reveal()
+		
 
 # Checks if the player has selected a building
 # Checks if player has enough resources to construct the building
