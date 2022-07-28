@@ -7,13 +7,14 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
 
-[node name="House" type="Node2D"]
-z_index = -1
+[node name="House" type="Node2D" groups=["building"]]
+z_index = 1
 script = ExtResource( 2 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+z_index = -1
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -28,6 +29,6 @@ theme = ExtResource( 3 )
 margin_left = -16.0
 margin_top = -20.0
 margin_right = 16.0
-margin_bottom = -10.0
-text = "4/4"
+margin_bottom = -6.0
+text = "4"
 align = 1

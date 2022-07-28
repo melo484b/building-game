@@ -32,7 +32,7 @@ func consume_resources() -> void:
 	update_residentLabel()
 
 func update_residentLabel() -> void:
-	residentLabel.text = str(residents) + "/4"
+	residentLabel.text = str(residents)
 
 func get_compatible_tiles() -> Array:
 	return compatible_tiles

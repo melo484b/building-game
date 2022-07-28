@@ -3,7 +3,8 @@
 [ext_resource path="res://Sprites/trees.png" type="Texture" id=1]
 [ext_resource path="res://World/TreeNode.gd" type="Script" id=2]
 
-[node name="TreeNode" type="Node2D"]
+[node name="TreeNode" type="Node2D" groups=["foliage"]]
+z_index = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

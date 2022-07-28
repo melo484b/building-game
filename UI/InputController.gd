@@ -51,17 +51,18 @@ func place_building(building) -> void:
 		if (building_instance.check_tile(hud.main.get_current_tile(), building_instance.compatible_tiles)):
 			if (recipes.compare_requirements(building_instance.recipe)):
 				building_instance.position = hud.grid_snap()
-				get_parent().get_parent().add_child(building_instance)
+				get_parent().get_parent().get_node("WorldMap").add_child(building_instance)
+				hud.main.world.check_locations(building_instance.position.y)
 				recipes.use_recipe_ingredients(building_instance.recipe)
 				if (Input.is_action_pressed("place_multiple")):
 					pass
 				else:
 					end_building()
 			else:
-				print("Not enough materials.")
+				hud.notEnoughResources()
 				end_building()
 		else:
-			print("Invalid placement")
+			hud.invalidPlacement()
 
 func is_building_selected() -> bool:
 	return !hud.main.selected_building == null

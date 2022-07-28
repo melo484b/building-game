@@ -11,3 +11,9 @@ func _init():
 
 func _ready():
 	resource = METAL
+
+func _on_MetalButton_button_down():
+	pass # Produce metal
+
+func _on_ToolsButton_button_down():
+	pass # Produce tools

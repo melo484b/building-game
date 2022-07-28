@@ -19,7 +19,8 @@ enum {
 	STONE,
 	METAL,
 	GOLD,
-	RESIDENTS	
+	RESIDENTS,
+	TOOLS	
 	}
 
 func _init():
@@ -30,7 +31,7 @@ func _init():
 	timer.connect("timeout", self, "on_timeout")
 
 func _ready():
-	print("Building ready")
+	print("Building ready at: " + str(self.position))
 	
 func on_timeout():
 	modify_resources(resource)
@@ -93,3 +94,6 @@ func consume_resources() -> void:
 # Used by children to compare compatible tiles to tiles returned by main's get_current_tile()
 func check_tile(tile_index, array_to_check) -> bool:
 	return tile_index in array_to_check
+
+func destroy_building() -> void:
+	self.queue_free()

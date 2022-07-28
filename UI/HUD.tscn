@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Sprites/house.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/gold.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Game/PlayerResources.gd" type="Script" id=21]
 [ext_resource path="res://UI/BuildingRecipes.gd" type="Script" id=22]
 [ext_resource path="res://UI/DevPanel.gd" type="Script" id=23]
+[ext_resource path="res://UI/PlayerWarning.gd" type="Script" id=24]
 
 [node name="HUD" type="Control"]
 anchor_right = 1.0
@@ -420,7 +421,7 @@ script = ExtResource( 22 )
 [node name="DevPanel" type="Panel" parent="."]
 margin_left = 329.0
 margin_right = 480.0
-margin_bottom = 62.0
+margin_bottom = 93.0
 hint_tooltip = "Toggle me with CTRL + ALT + D"
 script = ExtResource( 23 )
 
@@ -464,6 +465,70 @@ margin_right = 61.0
 margin_bottom = 58.0
 text = "Normal"
 
+[node name="Buildings" type="Label" parent="DevPanel"]
+margin_left = 3.0
+margin_top = 64.0
+margin_right = 93.0
+margin_bottom = 74.0
+text = "Buildings"
+
+[node name="DestroyAll" type="Label" parent="DevPanel"]
+margin_left = 4.0
+margin_top = 79.0
+margin_right = 62.0
+margin_bottom = 89.0
+text = "Destroy All"
+
+[node name="DestroyAllButton" type="Button" parent="DevPanel"]
+margin_left = 101.0
+margin_top = 79.0
+margin_right = 111.0
+margin_bottom = 89.0
+
+[node name="ResourcesPopup" type="PopupPanel" parent="."]
+anchor_right = 0.725
+margin_left = 161.0
+margin_top = 100.0
+margin_right = -29.0
+margin_bottom = 118.0
+rect_min_size = Vector2( 158, 18 )
+size_flags_horizontal = 12
+size_flags_vertical = 12
+script = ExtResource( 24 )
+
+[node name="Label" type="Label" parent="ResourcesPopup"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 194.0
+margin_bottom = 14.0
+text = "Not enough resources!"
+
+[node name="Timer" type="Timer" parent="ResourcesPopup"]
+wait_time = 0.8
+one_shot = true
+
+[node name="PlacementPopup" type="PopupPanel" parent="."]
+anchor_right = 0.725
+margin_left = 161.0
+margin_top = 100.0
+margin_right = -29.0
+margin_bottom = 118.0
+rect_min_size = Vector2( 158, 18 )
+size_flags_horizontal = 12
+size_flags_vertical = 12
+script = ExtResource( 24 )
+
+[node name="Label" type="Label" parent="PlacementPopup"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 154.0
+margin_bottom = 14.0
+text = "Invalid Placement!"
+
+[node name="Timer" type="Timer" parent="PlacementPopup"]
+wait_time = 0.8
+one_shot = true
+
 [connection signal="is_building" from="." to="InputController" method="_on_HUD_is_building"]
 [connection signal="button_down" from="ButtonPanel/HBoxContainer/WellButton" to="." method="_on_WellButton_button_down"]
 [connection signal="button_down" from="ButtonPanel/HBoxContainer/HunterButton" to="." method="_on_HunterButton_button_down"]
@@ -475,3 +540,8 @@ text = "Normal"
 [connection signal="button_down" from="ButtonPanel/HBoxContainer/ShopButton" to="." method="_on_ShopButton_button_down"]
 [connection signal="button_down" from="DevPanel/MaxResourcesButton" to="DevPanel" method="_on_MaxResourcesButton_button_down"]
 [connection signal="button_down" from="DevPanel/LimitResourcesButton" to="DevPanel" method="_on_LimitResourcesButton_button_down"]
+[connection signal="button_down" from="DevPanel/DestroyAllButton" to="." method="_on_DestroyAllButton_button_down"]
+[connection signal="visibility_changed" from="ResourcesPopup" to="." method="_on_ResourcesPopup_visibility_changed"]
+[connection signal="timeout" from="ResourcesPopup/Timer" to="ResourcesPopup" method="_on_Timer_timeout"]
+[connection signal="visibility_changed" from="PlacementPopup" to="." method="_on_PlacementPopup_visibility_changed"]
+[connection signal="timeout" from="PlacementPopup/Timer" to="PlacementPopup" method="_on_Timer_timeout"]

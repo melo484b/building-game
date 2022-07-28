@@ -83,5 +83,20 @@ func update_labels() -> void:
 	gold_label.text = str(PlayerResources.get_gold())
 
 func grid_snap() -> Vector2:
-	var mouse_pos = main.world.world_to_map(get_global_mouse_position())
-	return main.world.map_to_world(mouse_pos)
+	var mouse_pos: Vector2 = main.world.world_to_map(get_global_mouse_position())
+	return main.world.map_to_world(mouse_pos) + Vector2(8, 8)
+
+func notEnoughResources() -> void:
+	$ResourcesPopup.visible = true
+
+func invalidPlacement() -> void:
+	$PlacementPopup.visible = true
+
+func _on_ResourcesPopup_visibility_changed() -> void:
+	$ResourcesPopup.start_timer()
+
+func _on_PlacementPopup_visibility_changed() -> void:
+	$PlacementPopup.start_timer()
+
+func _on_DestroyAllButton_button_down():
+	main.world.destroy_all_buildings()
