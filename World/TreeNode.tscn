@@ -10,7 +10,7 @@ shader_param/width = 1.0
 shader_param/outline_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 17.5, 24.5 )
+extents = Vector2( 17.5, 25 )
 
 [node name="TreeNode" type="Node2D" groups=["foliage"]]
 z_index = 2
@@ -27,8 +27,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-position = Vector2( 0.5, -19.5 )
+position = Vector2( 0.5, -20 )
 shape = SubResource( 1 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
