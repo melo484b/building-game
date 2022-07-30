@@ -41,52 +41,35 @@ func on_timeout():
 func modify_resources(resource_type) -> void:
 	match resource_type:
 		WATER:
-			gather_water()
+			gather_resource("water")
 		FOOD:
-			gather_food()
+			gather_resource("food")
 		WOOD:
-			gather_wood()
+			gather_resource("wood")
 		STONE:
-			gather_stone()
+			gather_resource("stone")
 		METAL:
 			make_metal()
 		GOLD:
-			collect_taxes()
+			gather_resource("gold")
 		RESIDENTS:
 			consume_resources()
 		_:
 			print("Resource not set.")
-			
-func gather_water() -> void:
-	var current_water = PlayerResources.get_water()
-	PlayerResources.set_water(current_water + 1)
 
-func gather_food() -> void:
-	var current_food = PlayerResources.get_food()
-	PlayerResources.set_food(current_food + 1)
-
-func gather_wood() -> void:
-	var current_wood = PlayerResources.get_wood()
-	PlayerResources.set_wood(current_wood + 1)
-
-func gather_stone() -> void:
-	var current_stone = PlayerResources.get_stone()
-	PlayerResources.set_stone(current_stone + 1)
+func gather_resource(resource: String) -> void:
+	PlayerResources.add_resource(resource, 1)
 
 func make_metal() -> void:
-	var current_metal = PlayerResources.get_metal()
-	var current_stone = PlayerResources.get_stone()
+	var current_metal = PlayerResources.get_resource("metal")
+	var current_stone = PlayerResources.get_resource("stone")
 	var metal_made = int(rand_range(1, 3));
 	var stone_used = metal_made * 2;
-	if (PlayerResources.get_stone() >= stone_used):
-		PlayerResources.set_metal(current_metal + metal_made)
-		PlayerResources.set_stone(current_stone - stone_used)
+	if (PlayerResources.get_resource("stone") >= stone_used):
+		PlayerResources.add_resource("metal", metal_made)
+		PlayerResources.remove_resource("stone", stone_used)
 	else:
 		print("Not enough stone.")
-
-func collect_taxes() -> void:
-	var current_gold = PlayerResources.get_gold()
-	PlayerResources.set_gold(current_gold + 1)
 
 func consume_resources() -> void:
 	pass

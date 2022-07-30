@@ -75,12 +75,12 @@ func _on_ShopButton_button_down() -> void:
 	cursor.set_cursor_texture(7)
 
 func update_labels() -> void:
-	water_label.text = str(PlayerResources.get_water())
-	food_label.text = str(PlayerResources.get_food())
-	wood_label.text = str(PlayerResources.get_wood())
-	stone_label.text = str(PlayerResources.get_stone())
-	metal_label.text = str(PlayerResources.get_metal())
-	gold_label.text = str(PlayerResources.get_gold())
+	water_label.text = str(PlayerResources.get_resource("water"))
+	food_label.text = str(PlayerResources.get_resource("food"))
+	wood_label.text = str(PlayerResources.get_resource("wood"))
+	stone_label.text = str(PlayerResources.get_resource("stone"))
+	metal_label.text = str(PlayerResources.get_resource("metal"))
+	gold_label.text = str(PlayerResources.get_resource("gold"))
 
 func grid_snap() -> Vector2:
 	var mouse_pos: Vector2 = main.world.world_to_map(get_global_mouse_position())

@@ -16,7 +16,7 @@ func compare_requirements(recipe_name) -> bool:
 	var positives = 0
 	for key in recipe_book[recipe_name].keys():
 		key_count += 1
-		if (PlayerResources.get_resource_by_name(key) >= recipe_book[recipe_name][key]):
+		if (PlayerResources.get_resource(key) >= recipe_book[recipe_name][key]):
 			positives += 1
 	if (positives == key_count):
 		return true
@@ -28,7 +28,7 @@ func get_ingredient_amount(recipe_name, ingredient_name) -> int:
 
 func use_recipe_ingredients(recipe_name) -> void:
 	for ingredient in recipe_book[recipe_name].keys():
-		PlayerResources.set_resource_by_name(ingredient, PlayerResources.get_resource_by_name(ingredient) - get_ingredient_amount(recipe_name, ingredient))
+		PlayerResources.remove_resource(ingredient, get_ingredient_amount(recipe_name, ingredient))
 
 func recipe_tooltip(recipe_name) -> String:
 	var tooltip_string = recipe_name + "\n\n"

@@ -14,11 +14,11 @@ func _ready():
 # Override
 func gather_food() -> void:
 	if (fish_in_the_sea > 0):
-		var current_food = PlayerResources.get_food()
+		var current_food = PlayerResources.get_resource("food")
 		if (fish_in_the_sea > 35):
-			PlayerResources.set_food(current_food + 1)
+			PlayerResources.add_resource("food", 1)
 		else:
-			PlayerResources.set_food(current_food + 2)
+			PlayerResources.add_resource("food", 2)
 		fish_in_the_sea -= 1
 	if (fish_in_the_sea <= 0):
 		queue_free()
