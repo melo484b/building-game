@@ -9,6 +9,35 @@ var resources_available: Dictionary = {
 	"gold": 0
 	}
 
+
+
+func add_resource(resource_name: String, amount: int) -> void:
+	if resources_available.has(resource_name): # checks to see if key exixts in dictionary
+		if (resources_available[resource_name] < 999):
+			resources_available[resource_name] += amount
+		else:
+			resources_available[resource_name] = 999
+	else:
+		assert(false, "This resource is invalid.")
+
+func remove_resource(resource_name: String, amount: int) -> void:
+	if resources_available.has(resource_name): # checks to see if key exixts in dictionary
+		if (resources_available[resource_name] < 0):
+			#TODO:Add some sort of way to notify player of not enough resource 
+			return
+		else:
+			resources_available[resource_name] -= amount
+	else:
+		assert(false, "This resource is invalid.")
+
+func get_resource(resource_name: String) -> int:
+	if resources_available.has(resource_name): # checks to see if key exixts in dictionary
+		return resources_available[resource_name]
+	else:
+		assert(false, "This resource is invalid.")
+		return -0 # Added to remove return type error 
+	
+
 func set_water(new_value) -> void:
 	if (resources_available["water"] < 999):
 		resources_available["water"] = new_value
