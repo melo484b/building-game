@@ -9,7 +9,8 @@ var residents: int = 4
 
 var compatible_tiles: Array = [12, 14]
 
-onready var residentLabel: Label = $ResidentCount/ResidentLabel
+onready var resident_label: Label = $ResidentCount/ResidentLabel
+onready var resident_control: Control = $ResidentCount
 
 func _ready():
 	resource = RESIDENTS
@@ -32,7 +33,8 @@ func consume_resources() -> void:
 	update_residentLabel()
 
 func update_residentLabel() -> void:
-	residentLabel.text = str(residents)
+	resident_label.text = str(residents)
+	resident_control.hint_tooltip = (str(residents) + " Residents")
 
 func get_compatible_tiles() -> Array:
 	return compatible_tiles
