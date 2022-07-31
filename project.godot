@@ -80,6 +80,8 @@ PlayerResources="*res://Game/PlayerResources.gd"
 
 window/size/width=480
 window/size/height=290
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [global]
 
