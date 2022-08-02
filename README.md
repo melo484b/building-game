@@ -30,4 +30,4 @@ This is a project I like to work on in my spare time.
 - Tooltip text sometimes appears stretched
 - ~~House and house label can be hidden behind trees~~
 - ~~Resources don't decrease after reaching the maximum amount~~
-- Buildings can be placed on top of one another
+- ~~Buildings can be placed on top of one another~~
