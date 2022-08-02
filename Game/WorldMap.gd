@@ -24,3 +24,5 @@ func destroy_all_buildings() -> void:
 	var destroy_us = get_tree().get_nodes_in_group("building")
 	for i in destroy_us:
 		i.destroy_building()
+
+

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/fishingboat.png" type="Texture" id=1]
 [ext_resource path="res://Buildings/FishingBoat.gd" type="Script" id=2]
+[ext_resource path="res://UI/HUDTheme.tres" type="Theme" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -27,3 +28,11 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
+
+[node name="FishCount" type="Control" parent="."]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+hint_tooltip = "Fish count: "
+theme = ExtResource( 3 )

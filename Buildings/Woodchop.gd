@@ -12,5 +12,4 @@ func _init():
 func _ready():
 	resource = WOOD
 
-# TODO: Override check_tile() to check that the building is placed near a tree node, 
-# in addition to being placed on a grass tile
+# TODO: Check that the building is placed near a tree node

@@ -12,13 +12,17 @@ func _ready():
 	resource = FOOD
 
 # Override
-func gather_food() -> void:
+func gather_resource(resource: String) -> void:
 	if (fish_in_the_sea > 0):
-		var current_food = PlayerResources.get_resource("food")
 		if (fish_in_the_sea > 35):
 			PlayerResources.add_resource("food", 1)
 		else:
 			PlayerResources.add_resource("food", 2)
 		fish_in_the_sea -= 1
-	if (fish_in_the_sea <= 0):
-		queue_free()
+		print(str(fish_in_the_sea))
+		update_fish_count()
+	else:
+		destroy_building()
+
+func update_fish_count() -> void:
+	$FishCount.hint_tooltip = ("Fish count: " + str(fish_in_the_sea))

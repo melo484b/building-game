@@ -78,5 +78,7 @@ func consume_resources() -> void:
 func check_tile(tile_index, array_to_check) -> bool:
 	return tile_index in array_to_check
 
+# Clear remove position from array in WorldBuildings singleton then call queue_free()
 func destroy_building() -> void:
+	WorldBuildings.remove_building_location(self.position)
 	self.queue_free()
