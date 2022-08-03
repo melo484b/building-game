@@ -26,8 +26,6 @@
 [ext_resource path="res://UI/PlayerWarning.gd" type="Script" id=24]
 
 [node name="HUD" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
 theme = ExtResource( 8 )
 script = ExtResource( 16 )
 
@@ -53,9 +51,7 @@ custom_constants/separation = 2
 [node name="WellButton" type="Button" parent="ButtonPanel/HBoxContainer"]
 margin_right = 16.0
 margin_bottom = 32.0
-hint_tooltip = "Well
-
-10 Stone"
+hint_tooltip = "Well"
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 8 )
@@ -407,17 +403,6 @@ margin_right = 44.0
 margin_bottom = 12.0
 text = "Shop"
 
-[node name="MouseCursor" parent="." instance=ExtResource( 18 )]
-
-[node name="PlayerResources" type="Node" parent="."]
-script = ExtResource( 21 )
-
-[node name="InputController" type="Node" parent="."]
-script = ExtResource( 19 )
-
-[node name="BuildingRecipes" type="Node" parent="."]
-script = ExtResource( 22 )
-
 [node name="DevPanel" type="Panel" parent="."]
 margin_left = 329.0
 margin_right = 480.0
@@ -499,8 +484,8 @@ script = ExtResource( 24 )
 [node name="Label" type="Label" parent="ResourcesPopup"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 194.0
-margin_bottom = 14.0
+margin_right = 154.0
+margin_bottom = 18.0
 text = "Not enough resources!"
 
 [node name="Timer" type="Timer" parent="ResourcesPopup"]
@@ -522,12 +507,23 @@ script = ExtResource( 24 )
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 154.0
-margin_bottom = 14.0
+margin_bottom = 18.0
 text = "Invalid Placement!"
 
 [node name="Timer" type="Timer" parent="PlacementPopup"]
 wait_time = 0.8
 one_shot = true
+
+[node name="BuildingRecipes" type="Node" parent="."]
+script = ExtResource( 22 )
+
+[node name="InputController" type="Node" parent="."]
+script = ExtResource( 19 )
+
+[node name="PlayerResources" type="Node" parent="."]
+script = ExtResource( 21 )
+
+[node name="MouseCursor" parent="." instance=ExtResource( 18 )]
 
 [connection signal="is_building" from="." to="InputController" method="_on_HUD_is_building"]
 [connection signal="button_down" from="ButtonPanel/HBoxContainer/WellButton" to="." method="_on_WellButton_button_down"]
