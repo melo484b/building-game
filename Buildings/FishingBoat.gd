@@ -15,9 +15,9 @@ func _ready():
 func gather_resource(resource: String) -> void:
 	if (fish_in_the_sea > 0):
 		if (fish_in_the_sea > 35):
-			PlayerResources.add_resource("food", 1)
+			PlayerResources.add_resource(resource, 1)
 		else:
-			PlayerResources.add_resource("food", 2)
+			PlayerResources.add_resource(resource, 2)
 		fish_in_the_sea -= 1
 		print(str(fish_in_the_sea))
 		update_fish_count()

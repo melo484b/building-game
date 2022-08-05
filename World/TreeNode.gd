@@ -9,5 +9,5 @@ func _ready():
 func activate_transparency() -> void:
 	sprite.modulate = Color(1, 1, 1, 0.40)
 	
-func _on_Area2D_area_entered(area):
+func _on_Area2D_area_entered(_area):
 	activate_transparency()

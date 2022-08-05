@@ -484,8 +484,8 @@ script = ExtResource( 24 )
 [node name="Label" type="Label" parent="ResourcesPopup"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 154.0
-margin_bottom = 18.0
+margin_right = 194.0
+margin_bottom = 14.0
 text = "Not enough resources!"
 
 [node name="Timer" type="Timer" parent="ResourcesPopup"]
@@ -507,7 +507,7 @@ script = ExtResource( 24 )
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 154.0
-margin_bottom = 18.0
+margin_bottom = 14.0
 text = "Invalid Placement!"
 
 [node name="Timer" type="Timer" parent="PlacementPopup"]

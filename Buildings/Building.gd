@@ -4,7 +4,7 @@ class_name Building
 var timer: Timer
 
 # Resource that will be added to the PlayerResources
-var resource: int = -1
+var resource = null
 
 # Compatible tiles are as follows:
 # 12 - grass
@@ -61,8 +61,6 @@ func gather_resource(resource: String) -> void:
 	PlayerResources.add_resource(resource, 1)
 
 func make_metal() -> void:
-	var current_metal = PlayerResources.get_resource("metal")
-	var current_stone = PlayerResources.get_resource("stone")
 	var metal_made = int(rand_range(1, 3));
 	var stone_used = metal_made * 2;
 	if (PlayerResources.get_resource("stone") >= stone_used):

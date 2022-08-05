@@ -8,6 +8,7 @@ onready var tree5: Node2D = $TreeNode5
 onready var tree6: Node2D = $TreeNode6
 onready var tree7: Node2D = $TreeNode7
 
+# TODO fix this
 var trees = []
 
 func _ready():

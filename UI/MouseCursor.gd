@@ -3,7 +3,6 @@ extends CanvasLayer
 # Children
 onready var cursor_sprite: Sprite = $CursorSprite
 onready var selection_sprite: Sprite = $SelectionSprite
-onready var detector: Area2D = $BuildingDetector
 
 # Building sprites
 onready var well_sprite: StreamTexture = preload("res://Sprites/well.png")
