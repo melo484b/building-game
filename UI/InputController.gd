@@ -7,6 +7,7 @@ onready var cursor: Node = get_parent().get_node("MouseCursor")
 onready var hud: Control = get_parent()
 onready var recipes: Node = get_parent().get_node("BuildingRecipes")
 onready var dev: Panel = get_parent().get_node("DevPanel")
+onready var shop: Panel = get_parent().get_node("ShopPanel")
 
 var is_building: bool = false
 
@@ -41,6 +42,11 @@ func _input(_event):
 		else:
 			dev.reveal()
 		
+	if (Input.is_action_just_pressed("open_shop")):
+		if (shop.get_visibility()):
+			shop.hide()
+		else:
+			shop.reveal()
 
 # Checks if the player has selected a building
 # Checks if player has enough resources to construct the building

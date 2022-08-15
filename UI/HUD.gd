@@ -9,6 +9,7 @@ onready var main: Node2D = get_parent()
 onready var buttons: Panel = $ButtonPanel
 onready var resources: Panel = $ResourcesPanel
 onready var input_controller: Node = $InputController
+onready var shop: Panel = $ShopPanel
 
 # Button variables
 onready var well_button: Button = $ButtonPanel/HBoxContainer/WellButton
@@ -33,6 +34,8 @@ onready var gold_label: Label = $ResourcesPanel/HBoxContainer/AmountLabels/GoldL
 
 # Mouse cursor
 onready var cursor: CanvasLayer = $MouseCursor
+
+var shop_available: bool = false
 
 func _on_WellButton_button_down() -> void:
 	emit_signal("is_building")
