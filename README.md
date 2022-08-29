@@ -31,3 +31,7 @@ This is a project I like to work on in my spare time.
 - ~~House and house label can be hidden behind trees~~
 - ~~Resources don't decrease after reaching the maximum amount~~
 - ~~Buildings can be placed on top of one another~~
+
+
+<sub>Please note that this project includes assets which may be licensed under different terms. A list of assets will be maintained here:</sub><br>
+<sub>1. [Fantasy RPG Tileset Pack](https://www.gamedevmarket.net/asset/fantasy-rpg-tileset-pack-3541/), created by [finalbossblues](finalbossblues.com).</sub>
