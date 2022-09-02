@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Peaceful Zone Loop No Melody.ogg-c2a5702abef70a09013b12a13beea979.oggstr"
+
+[deps]
+
+source_file="res://AudioAssets/Music/Peaceful Zone Loop No Melody.ogg"
+dest_files=[ "res://.import/Peaceful Zone Loop No Melody.ogg-c2a5702abef70a09013b12a13beea979.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

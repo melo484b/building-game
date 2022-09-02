@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://UI/AnimatedButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/HUDTheme.tres" type="Theme" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://World/TreeNode.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/WorldMap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Tiles/fantasy_rpg_tileset_pack_tiles/world.png" type="Texture" id=6]
+[ext_resource path="res://AudioAssets/Music/Peaceful Zone Loop No Melody.ogg" type="AudioStream" id=7]
+[ext_resource path="res://UI/TransitionScreen.gd" type="Script" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.196078, 0.196078, 0.196078, 0.780392 )
@@ -124,6 +126,48 @@ bg_color = Color( 0.196078, 0.196078, 0.196078, 0.780392 )
 7/shapes = [  ]
 7/z_index = 0
 
+[sub_resource type="Animation" id=3]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -0.7, -1.5, -3.5, -20.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "load_game"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TransitionScreen:color")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7, 1.1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.811765 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource( 3 )
 
@@ -210,3 +254,16 @@ cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
 cell_tile_origin = 1
 tile_data = PoolIntArray( 0, -1610612733, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 4, 0, 7, 4, 0, 8, 4, 0, 9, 4, 0, 10, 4, 0, 11, 4, 0, 12, 4, 0, 13, 4, 0, 14, 4, 0, 15, 4, 0, 16, 1610612736, 0, 17, -1610612711, 0, 22, -1073741799, 0, 23, -1610612735, 0, 24, 4, 0, 25, 4, 0, 26, 4, 0, 27, 4, 0, 28, 4, 0, 29, 1610612739, 0, 65536, -1073741820, 0, 65551, 1610612736, 0, 65552, -1610612711, 0, 65557, -1073741799, 0, 65558, -1610612735, 0, 65565, -1610612732, 0, 131072, -1073741820, 0, 131086, 1610612736, 0, 131087, -1610612711, 0, 131092, -1073741799, 0, 131093, -1610612735, 0, 131101, -1610612732, 0, 196608, -1073741820, 0, 196621, 1610612736, 0, 196622, -1610612711, 0, 196627, -1073741799, 0, 196628, -1610612735, 0, 196629, -1073741812, 5, 196637, -1610612732, 0, 262144, -1073741820, 0, 262156, 1610612736, 0, 262157, -1610612711, 0, 262162, -1073741799, 0, 262163, -1610612735, 0, 262164, -1073741812, 1, 262165, 24, 0, 262173, -1610612732, 0, 327680, -1073741820, 0, 327691, 1610612736, 0, 327692, -1610612711, 0, 327697, -1073741799, 0, 327698, -1610612735, 0, 327699, -1073741812, 3, 327700, 24, 0, 327709, -1610612732, 0, 393216, -1073741820, 0, 393226, 1610612736, 0, 393227, -1610612711, 0, 393232, -1073741799, 0, 393234, -1073741812, 4, 393235, 24, 0, 393245, -1610612732, 0, 458752, 3, 0, 458753, 7, 0, 458754, 7, 0, 458755, 7, 0, 458756, 7, 0, 458757, 7, 0, 458758, 7, 0, 458759, 7, 0, 458760, 7, 0, 458761, 1610612736, 0, 458762, -1610612711, 0, 458767, -1073741799, 0, 458768, -1073741812, 0, 458769, -1610612735, 0, 458770, 7, 0, 458771, 7, 0, 458772, 7, 0, 458773, 7, 0, 458774, 7, 0, 458775, 7, 0, 458776, 7, 0, 458777, 7, 0, 458778, 7, 0, 458779, 7, 0, 458780, 7, 0, 458781, -1073741821, 0, 524288, 0, 0, 524289, 20, 0, 524290, 20, 0, 524291, 20, 0, 524292, 20, 0, 524293, 20, 0, 524294, 20, 0, 524295, 20, 0, 524296, 20, 0, 524305, 20, 0, 524306, 20, 0, 524307, 20, 0, 524308, 20, 0, 524309, 20, 0, 524310, 20, 0, 524311, 20, 0, 524312, 20, 0, 524313, 20, 0, 524314, 20, 0, 524315, 20, 0, 524316, 20, 0, 524317, -1610612736, 0, 589824, -1610612730, 0, 589853, -1073741818, 0, 655360, -1610612730, 0, 655389, -1073741818, 0, 720896, -1610612730, 0, 720925, -1073741818, 0, 786432, -1610612730, 0, 786461, -1073741818, 0, 851968, -1610612730, 0, 851997, -1073741818, 0, 917504, -1610612730, 0, 917533, -1073741818, 0, 983040, -1610612730, 0, 983069, -1073741818, 0, 1048576, -1610612730, 0, 1048605, -1073741818, 0, 1114112, 1, 0, 1114113, 6, 0, 1114114, 6, 0, 1114115, 6, 0, 1114116, 6, 0, 1114117, 6, 0, 1114118, 6, 0, 1114119, 6, 0, 1114120, 6, 0, 1114121, 6, 0, 1114122, 6, 0, 1114123, 6, 0, 1114124, 6, 0, 1114125, 6, 0, 1114126, 6, 0, 1114127, 6, 0, 1114128, 6, 0, 1114129, 6, 0, 1114130, 6, 0, 1114131, 6, 0, 1114132, 6, 0, 1114133, 6, 0, 1114134, 6, 0, 1114135, 6, 0, 1114136, 6, 0, 1114137, 6, 0, 1114138, 6, 0, 1114139, 6, 0, 1114140, 6, 0, 1114141, -1073741823, 0 )
 script = null
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -0.7
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fade_out = SubResource( 3 )
+
+[node name="TransitionScreen" type="ColorRect" parent="."]
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+script = ExtResource( 8 )
