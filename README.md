@@ -3,6 +3,7 @@
 This is a project I like to work on in my spare time.
 
 ## Features
+- Main menu
 - Resource panel to track resources available to the player
 - Shop panel for the player to purchase/sell resources
 - Building panel with 6 unique buildings
@@ -16,7 +17,6 @@ This is a project I like to work on in my spare time.
 - GUI notices when certain events occur
 - Blacksmith building can be toggled to produce items or metal
 - Implement a use for gold
-- Main menu
 - Resource nodes
 - SoundFX
 - Art
@@ -34,4 +34,5 @@ This is a project I like to work on in my spare time.
 
 
 <sub>Please note that this project includes assets which may be licensed under different terms. A list of assets will be maintained here:</sub><br>
-<sub>1. [Fantasy RPG Tileset Pack](https://www.gamedevmarket.net/asset/fantasy-rpg-tileset-pack-3541/), created by [finalbossblues](finalbossblues.com).</sub>
+<sub>1. [Fantasy RPG Tileset Pack](https://www.gamedevmarket.net/asset/fantasy-rpg-tileset-pack-3541/), created by [finalbossblues](finalbossblues.com).</sub><br>
+<sub>2. [RPG Zone Music Pack](https://www.fiverr.com/timbeek/video-game-music-loops), created by [timbeek](https://www.fiverr.com/timbeek).</sub>
