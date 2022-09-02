@@ -241,6 +241,7 @@ theme = ExtResource( 8 )
 text = "0"
 
 [node name="ShopPanel" type="Panel" parent="."]
+visible = false
 margin_left = 161.0
 margin_top = 123.0
 margin_right = 309.0
