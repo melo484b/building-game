@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Sprites/house.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/gold.png" type="Texture" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://UI/WoodButton.gd" type="Script" id=27]
 [ext_resource path="res://UI/StoneButton.gd" type="Script" id=28]
 [ext_resource path="res://UI/MetalButton.gd" type="Script" id=29]
+[ext_resource path="res://UI/ShopMode.gd" type="Script" id=30]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.223529, 0.223529, 0.223529, 1 )
@@ -240,163 +241,201 @@ theme = ExtResource( 8 )
 text = "0"
 
 [node name="ShopPanel" type="Panel" parent="."]
-visible = false
 margin_left = 161.0
 margin_top = 123.0
 margin_right = 309.0
-margin_bottom = 192.0
+margin_bottom = 213.0
+rect_min_size = Vector2( 204, 90 )
 size_flags_horizontal = 2
 size_flags_vertical = 2
 theme = ExtResource( 8 )
 script = ExtResource( 20 )
 
-[node name="GridContainer" type="GridContainer" parent="ShopPanel"]
-margin_left = 2.0
+[node name="HBoxContainer" type="HBoxContainer" parent="ShopPanel"]
+margin_left = 4.0
 margin_top = 16.0
-margin_right = 146.0
-margin_bottom = 69.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-custom_constants/vseparation = 7
-custom_constants/hseparation = 14
-columns = 5
+margin_right = 182.172
+margin_bottom = 66.0
+rect_min_size = Vector2( 200, 50 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 20
+alignment = 1
 
-[node name="water" type="TextureRect" parent="ShopPanel/GridContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopPanel/HBoxContainer"]
+margin_left = 10.0
+margin_right = 30.0
+margin_bottom = 50.0
+
+[node name="water" type="TextureRect" parent="ShopPanel/HBoxContainer/VBoxContainer"]
 margin_right = 16.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 hint_tooltip = "Water x10"
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme = ExtResource( 8 )
 texture = ExtResource( 4 )
 expand = true
 
-[node name="food" type="TextureRect" parent="ShopPanel/GridContainer"]
-margin_left = 30.0
-margin_right = 50.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 16, 16 )
-hint_tooltip = "Food x10"
-theme = ExtResource( 8 )
-texture = ExtResource( 7 )
-expand = true
-
-[node name="wood" type="TextureRect" parent="ShopPanel/GridContainer"]
-margin_left = 64.0
-margin_right = 80.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 16, 16 )
-hint_tooltip = "Wood x10"
-theme = ExtResource( 8 )
-texture = ExtResource( 5 )
-expand = true
-
-[node name="stone" type="TextureRect" parent="ShopPanel/GridContainer"]
-margin_left = 94.0
-margin_right = 110.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 16, 16 )
-hint_tooltip = "Stone x10"
-theme = ExtResource( 8 )
-texture = ExtResource( 3 )
-expand = true
-
-[node name="metal" type="TextureRect" parent="ShopPanel/GridContainer"]
-margin_left = 124.0
-margin_right = 144.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 16, 16 )
-hint_tooltip = "Metal x10"
-theme = ExtResource( 8 )
-texture = ExtResource( 6 )
-expand = true
-
-[node name="WaterLabel" type="Label" parent="ShopPanel/GridContainer"]
-margin_top = 23.0
-margin_right = 16.0
-margin_bottom = 33.0
-theme = ExtResource( 8 )
-text = "1g"
-align = 1
-
-[node name="FoodLabel" type="Label" parent="ShopPanel/GridContainer"]
-margin_left = 30.0
-margin_top = 23.0
-margin_right = 50.0
-margin_bottom = 33.0
+[node name="WaterLabel" type="Label" parent="ShopPanel/HBoxContainer/VBoxContainer"]
+margin_top = 20.0
+margin_right = 20.0
+margin_bottom = 30.0
 theme = ExtResource( 8 )
 text = "2g"
 align = 1
 
-[node name="WoodLabel" type="Label" parent="ShopPanel/GridContainer"]
-margin_left = 64.0
-margin_top = 23.0
-margin_right = 80.0
-margin_bottom = 33.0
-theme = ExtResource( 8 )
-text = "1g"
-align = 1
-
-[node name="StoneLabel" type="Label" parent="ShopPanel/GridContainer"]
-margin_left = 94.0
-margin_top = 23.0
-margin_right = 110.0
-margin_bottom = 33.0
-theme = ExtResource( 8 )
-text = "1g"
-align = 1
-
-[node name="MetalLabel" type="Label" parent="ShopPanel/GridContainer"]
-margin_left = 124.0
-margin_top = 23.0
-margin_right = 144.0
-margin_bottom = 33.0
-theme = ExtResource( 8 )
-text = "3g"
-align = 1
-
-[node name="WaterButton" type="Button" parent="ShopPanel/GridContainer"]
-margin_top = 40.0
+[node name="WaterButton" type="Button" parent="ShopPanel/HBoxContainer/VBoxContainer"]
+margin_top = 34.0
 margin_right = 16.0
-margin_bottom = 50.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 16, 10 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme = ExtResource( 8 )
 script = ExtResource( 25 )
 
-[node name="FoodButton" type="Button" parent="ShopPanel/GridContainer"]
-margin_left = 30.0
-margin_top = 40.0
-margin_right = 50.0
+[node name="VBoxContainer2" type="VBoxContainer" parent="ShopPanel/HBoxContainer"]
+margin_left = 50.0
+margin_right = 70.0
 margin_bottom = 50.0
+
+[node name="food" type="TextureRect" parent="ShopPanel/HBoxContainer/VBoxContainer2"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+hint_tooltip = "Food x10"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 8 )
+texture = ExtResource( 7 )
+expand = true
+
+[node name="FoodLabel" type="Label" parent="ShopPanel/HBoxContainer/VBoxContainer2"]
+margin_top = 20.0
+margin_right = 20.0
+margin_bottom = 30.0
+theme = ExtResource( 8 )
+text = "4g"
+align = 1
+
+[node name="FoodButton" type="Button" parent="ShopPanel/HBoxContainer/VBoxContainer2"]
+margin_top = 34.0
+margin_right = 16.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 16, 10 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme = ExtResource( 8 )
 script = ExtResource( 26 )
 
-[node name="WoodButton" type="Button" parent="ShopPanel/GridContainer"]
-margin_left = 64.0
-margin_top = 40.0
-margin_right = 80.0
+[node name="VBoxContainer3" type="VBoxContainer" parent="ShopPanel/HBoxContainer"]
+margin_left = 90.0
+margin_right = 110.0
 margin_bottom = 50.0
+
+[node name="wood" type="TextureRect" parent="ShopPanel/HBoxContainer/VBoxContainer3"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+hint_tooltip = "Wood x10"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 8 )
+texture = ExtResource( 5 )
+expand = true
+
+[node name="WoodLabel" type="Label" parent="ShopPanel/HBoxContainer/VBoxContainer3"]
+margin_top = 20.0
+margin_right = 20.0
+margin_bottom = 30.0
+theme = ExtResource( 8 )
+text = "6g"
+align = 1
+
+[node name="WoodButton" type="Button" parent="ShopPanel/HBoxContainer/VBoxContainer3"]
+margin_top = 34.0
+margin_right = 16.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 16, 10 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme = ExtResource( 8 )
 script = ExtResource( 27 )
 
-[node name="StoneButton" type="Button" parent="ShopPanel/GridContainer"]
-margin_left = 94.0
-margin_top = 40.0
-margin_right = 110.0
+[node name="VBoxContainer4" type="VBoxContainer" parent="ShopPanel/HBoxContainer"]
+margin_left = 130.0
+margin_right = 150.0
 margin_bottom = 50.0
+
+[node name="stone" type="TextureRect" parent="ShopPanel/HBoxContainer/VBoxContainer4"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+hint_tooltip = "Stone x10"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 8 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="StoneLabel" type="Label" parent="ShopPanel/HBoxContainer/VBoxContainer4"]
+margin_top = 20.0
+margin_right = 20.0
+margin_bottom = 30.0
+theme = ExtResource( 8 )
+text = "8g"
+align = 1
+
+[node name="StoneButton" type="Button" parent="ShopPanel/HBoxContainer/VBoxContainer4"]
+margin_top = 34.0
+margin_right = 16.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 16, 10 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme = ExtResource( 8 )
 script = ExtResource( 28 )
 
-[node name="MetalButton" type="Button" parent="ShopPanel/GridContainer"]
-margin_left = 124.0
-margin_top = 40.0
-margin_right = 144.0
+[node name="VBoxContainer5" type="VBoxContainer" parent="ShopPanel/HBoxContainer"]
+margin_left = 170.0
+margin_right = 190.0
 margin_bottom = 50.0
+
+[node name="metal" type="TextureRect" parent="ShopPanel/HBoxContainer/VBoxContainer5"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+hint_tooltip = "Metal x10"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 8 )
+texture = ExtResource( 6 )
+expand = true
+
+[node name="MetalLabel" type="Label" parent="ShopPanel/HBoxContainer/VBoxContainer5"]
+margin_top = 20.0
+margin_right = 20.0
+margin_bottom = 30.0
+theme = ExtResource( 8 )
+text = "8g"
+align = 1
+
+[node name="MetalButton2" type="Button" parent="ShopPanel/HBoxContainer/VBoxContainer5"]
+margin_top = 34.0
+margin_right = 16.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 16, 10 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme = ExtResource( 8 )
 script = ExtResource( 29 )
 
 [node name="Panel" type="Panel" parent="ShopPanel"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 146.0
+margin_right = 202.0
 margin_bottom = 13.0
 custom_styles/panel = SubResource( 1 )
 
@@ -406,6 +445,42 @@ margin_top = 2.0
 margin_right = 94.0
 margin_bottom = 12.0
 text = "Shop"
+
+[node name="ShopMode" type="HBoxContainer" parent="ShopPanel"]
+margin_left = 3.0
+margin_top = 72.0
+margin_right = 121.0
+margin_bottom = 88.0
+script = ExtResource( 30 )
+
+[node name="Label" type="Label" parent="ShopPanel/ShopMode"]
+margin_top = 3.0
+margin_right = 46.0
+margin_bottom = 13.0
+text = "Mode:"
+
+[node name="BuyButton" type="Button" parent="ShopPanel/ShopMode"]
+margin_left = 50.0
+margin_right = 82.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 32, 16 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 8 )
+toggle_mode = true
+pressed = true
+text = "Buy"
+
+[node name="SellButton" type="Button" parent="ShopPanel/ShopMode"]
+margin_left = 86.0
+margin_right = 118.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 32, 16 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 8 )
+toggle_mode = true
+text = "Sell"
 
 [node name="DevPanel" type="Panel" parent="."]
 margin_left = 329.0
@@ -538,11 +613,13 @@ script = ExtResource( 21 )
 [connection signal="button_down" from="ButtonPanel/HBoxContainer/MineButton" to="." method="_on_MineButton_button_down"]
 [connection signal="button_down" from="ButtonPanel/HBoxContainer/BlacksmithButton" to="." method="_on_BlacksmithButton_button_down"]
 [connection signal="button_down" from="ButtonPanel/HBoxContainer/ShopButton" to="." method="_on_ShopButton_button_down"]
-[connection signal="button_down" from="ShopPanel/GridContainer/WaterButton" to="ShopPanel/GridContainer/WaterButton" method="_on_WaterButton_button_down"]
-[connection signal="button_down" from="ShopPanel/GridContainer/FoodButton" to="ShopPanel/GridContainer/FoodButton" method="_on_FoodButton_button_down"]
-[connection signal="button_down" from="ShopPanel/GridContainer/WoodButton" to="ShopPanel/GridContainer/WoodButton" method="_on_WoodButton_button_down"]
-[connection signal="button_down" from="ShopPanel/GridContainer/StoneButton" to="ShopPanel/GridContainer/StoneButton" method="_on_StoneButton_button_down"]
-[connection signal="button_down" from="ShopPanel/GridContainer/MetalButton" to="ShopPanel/GridContainer/MetalButton" method="_on_MetalButton_button_down"]
+[connection signal="button_down" from="ShopPanel/HBoxContainer/VBoxContainer/WaterButton" to="ShopPanel" method="_on_WaterButton_button_down"]
+[connection signal="button_down" from="ShopPanel/HBoxContainer/VBoxContainer2/FoodButton" to="ShopPanel" method="_on_FoodButton_button_down"]
+[connection signal="button_down" from="ShopPanel/HBoxContainer/VBoxContainer3/WoodButton" to="ShopPanel" method="_on_WoodButton_button_down"]
+[connection signal="button_down" from="ShopPanel/HBoxContainer/VBoxContainer4/StoneButton" to="ShopPanel" method="_on_StoneButton_button_down"]
+[connection signal="button_down" from="ShopPanel/HBoxContainer/VBoxContainer5/MetalButton2" to="ShopPanel" method="_on_MetalButton2_button_down"]
+[connection signal="button_down" from="ShopPanel/ShopMode/BuyButton" to="ShopPanel/ShopMode" method="_on_BuyButton_button_down"]
+[connection signal="button_down" from="ShopPanel/ShopMode/SellButton" to="ShopPanel/ShopMode" method="_on_SellButton_button_down"]
 [connection signal="button_down" from="DevPanel/MaxResourcesButton" to="DevPanel" method="_on_MaxResourcesButton_button_down"]
 [connection signal="button_down" from="DevPanel/LimitResourcesButton" to="DevPanel" method="_on_LimitResourcesButton_button_down"]
 [connection signal="button_down" from="DevPanel/DestroyAllButton" to="." method="_on_DestroyAllButton_button_down"]

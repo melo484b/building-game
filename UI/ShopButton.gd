@@ -17,44 +17,36 @@ enum {
 	GOLD,
 	TOOLS	
 	}
-# Sets the shop mode - default is buying
-var buying: bool = true
 
-func make_transaction(resource_type) -> void:
+# if transaction_type is true then the shop is in buying mode
+func make_transaction(resource_type, transaction_type: bool) -> void:
 	match resource_type:
 		WATER:
-			exchange_resource("water")
+			exchange_resource("water", transaction_type)
 		FOOD:
-			exchange_resource("food")
+			exchange_resource("food", transaction_type)
 		WOOD:
-			exchange_resource("wood")
+			exchange_resource("wood", transaction_type)
 		STONE:
-			exchange_resource("stone")
+			exchange_resource("stone", transaction_type)
 		METAL:
-			exchange_resource("metal")
+			exchange_resource("metal", transaction_type)
 		GOLD:
-			exchange_resource("gold")
+			exchange_resource("gold", transaction_type)
 		_:
 			print("Resource not set.")
 
 # TODO present the player with a pop-up if they are not able to make a purchase
-func exchange_resource(resource: String) -> void:
-	if (buying):
+func exchange_resource(resource: String, transaction_type: bool) -> void:
+	if (transaction_type):
 		if (PlayerResources.get_resource("gold") > 10):
 			PlayerResources.add_resource(resource, 10)
 			PlayerResources.remove_resource("gold", label.text.to_int())
 		else:
 			print("Unable to complete the transaction")
-	elif (!buying):
+	elif (!transaction_type):
 		if (PlayerResources.get_resource(resource) > 10):
 			PlayerResources.remove_resource(resource, 10)
 			PlayerResources.add_resource("gold", label.text.to_int())
 		else:
 			print("Unable to complete the transaction")
-
-# TODO move this to a more appropriate script
-func toggle_shop_mode() -> void:
-	if (buying):
-		buying = false
-	else:
-		buying = true
