@@ -8,3 +8,4 @@
 stream = ExtResource( 1 )
 volume_db = -8.0
 autoplay = true
+bus = "Music"

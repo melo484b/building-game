@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/HUDTheme.tres" type="Theme" id=1]
 [ext_resource path="res://UI/AnimatedButton.gd" type="Script" id=2]
+[ext_resource path="res://AudioScenes/SFXManager.tscn" type="PackedScene" id=3]
 
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.278431, 0.760784, 0.298039, 0.568627 )
@@ -103,3 +104,5 @@ anims/hover = SubResource( 1 )
 [node name="ClickAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/click = SubResource( 2 )
 anims/hover = SubResource( 3 )
+
+[node name="SFXManager" parent="." instance=ExtResource( 3 )]

@@ -1,6 +1,8 @@
 extends Node
 class_name Building
 
+onready var animation: AnimationPlayer = $AnimationPlayer
+
 var timer: Timer
 
 # Resource that will be added to the PlayerResources
@@ -31,6 +33,8 @@ func _init():
 	timer.connect("timeout", self, "on_timeout")
 
 func _ready():
+	$SFXManager.slam.play()
+	animation.play("placement")
 	print("Building ready at: " + str(self.position))
 	
 func on_timeout():

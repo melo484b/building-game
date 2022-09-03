@@ -8,6 +8,7 @@ onready var hud: Control = get_parent()
 onready var recipes: Node = get_parent().get_node("BuildingRecipes")
 onready var dev: Panel = get_parent().get_node("DevPanel")
 onready var shop: Panel = get_parent().get_node("ShopPanel")
+onready var sfx: Node = $"../SFXManager"
 
 var is_building: bool = false
 
@@ -23,12 +24,14 @@ func _input(_event):
 			buttons.set_visibility(true)
 		else:
 			buttons.set_visibility(false)
+		sfx.window.play()
 		
 	if (Input.is_action_just_pressed("hide_resources")):
 		if (!resources.get_visibility() && !is_building):
 			resources.set_visibility(true)
 		else:
 			resources.set_visibility(false)
+		sfx.window.play()
 	
 	if (Input.is_action_just_pressed("ui_cancel") || Input.is_action_just_pressed("r_click")):
 		end_building()
@@ -41,12 +44,14 @@ func _input(_event):
 			dev.hide()
 		else:
 			dev.reveal()
+		sfx.window.play()
 		
 	if (Input.is_action_just_pressed("open_shop")):
 		if (shop.get_visibility()):
 			shop.hide()
 		else:
 			shop.reveal()
+		sfx.window.play()
 
 # Checks if the player has selected a building
 # Checks if player has enough resources to construct the building
@@ -66,6 +71,7 @@ func place_building(building) -> void:
 				else:
 					end_building()
 			else:
+				sfx.error.play()
 				hud.notEnoughResources()
 				end_building()
 		else:

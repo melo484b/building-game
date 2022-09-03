@@ -7,7 +7,9 @@ func _ready():
 
 func _on_mouse_entered() -> void:
 	$HoverAnimationPlayer.play("hover")
+	$SFXManager.hover.play()
 func _on_mouse_exited() -> void:
 	$HoverAnimationPlayer.play_backwards("hover")
 func _on_button_pressed() -> void:
 	$ClickAnimationPlayer.play("click")
+	$SFXManager.select.play()

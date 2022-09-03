@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Sprites/house.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/gold.png" type="Texture" id=2]
@@ -30,6 +30,8 @@
 [ext_resource path="res://UI/StoneButton.gd" type="Script" id=28]
 [ext_resource path="res://UI/MetalButton.gd" type="Script" id=29]
 [ext_resource path="res://UI/ShopMode.gd" type="Script" id=30]
+[ext_resource path="res://AudioScenes/SFXManager.tscn" type="PackedScene" id=31]
+[ext_resource path="res://UI/ButtonPanelButton.gd" type="Script" id=32]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.223529, 0.223529, 0.223529, 1 )
@@ -67,6 +69,7 @@ theme = ExtResource( 8 )
 custom_constants/hseparation = 0
 icon = ExtResource( 9 )
 expand_icon = true
+script = ExtResource( 32 )
 
 [node name="HunterButton" type="Button" parent="ButtonPanel/HBoxContainer"]
 margin_left = 18.0
@@ -75,6 +78,7 @@ margin_bottom = 32.0
 hint_tooltip = "Hunter's Shanty"
 theme = ExtResource( 8 )
 icon = ExtResource( 11 )
+script = ExtResource( 32 )
 
 [node name="FisherButton" type="Button" parent="ButtonPanel/HBoxContainer"]
 margin_left = 36.0
@@ -83,6 +87,7 @@ margin_bottom = 32.0
 hint_tooltip = "Fishing Boat"
 theme = ExtResource( 8 )
 icon = ExtResource( 12 )
+script = ExtResource( 32 )
 
 [node name="HouseButton" type="Button" parent="ButtonPanel/HBoxContainer"]
 margin_left = 54.0
@@ -91,6 +96,7 @@ margin_bottom = 32.0
 hint_tooltip = "House"
 theme = ExtResource( 8 )
 icon = ExtResource( 1 )
+script = ExtResource( 32 )
 
 [node name="WoodchopButton" type="Button" parent="ButtonPanel/HBoxContainer"]
 margin_left = 72.0
@@ -99,6 +105,7 @@ margin_bottom = 32.0
 hint_tooltip = "Wood Splitter's Pile"
 theme = ExtResource( 8 )
 icon = ExtResource( 10 )
+script = ExtResource( 32 )
 
 [node name="MineButton" type="Button" parent="ButtonPanel/HBoxContainer"]
 margin_left = 90.0
@@ -107,6 +114,7 @@ margin_bottom = 32.0
 hint_tooltip = "Mine"
 theme = ExtResource( 8 )
 icon = ExtResource( 14 )
+script = ExtResource( 32 )
 
 [node name="BlacksmithButton" type="Button" parent="ButtonPanel/HBoxContainer"]
 margin_left = 108.0
@@ -115,6 +123,7 @@ margin_bottom = 32.0
 hint_tooltip = "Blacksmith"
 theme = ExtResource( 8 )
 icon = ExtResource( 13 )
+script = ExtResource( 32 )
 
 [node name="ShopButton" type="Button" parent="ButtonPanel/HBoxContainer"]
 margin_left = 126.0
@@ -123,6 +132,7 @@ margin_bottom = 32.0
 hint_tooltip = "Shop"
 theme = ExtResource( 8 )
 icon = ExtResource( 15 )
+script = ExtResource( 32 )
 
 [node name="ResourcesPanel" type="Panel" parent="."]
 margin_right = 48.0
@@ -604,6 +614,8 @@ script = ExtResource( 19 )
 script = ExtResource( 21 )
 
 [node name="MouseCursor" parent="." instance=ExtResource( 18 )]
+
+[node name="SFXManager" parent="." instance=ExtResource( 31 )]
 
 [connection signal="is_building" from="." to="InputController" method="_on_HUD_is_building"]
 [connection signal="button_down" from="ButtonPanel/HBoxContainer/WellButton" to="." method="_on_WellButton_button_down"]
