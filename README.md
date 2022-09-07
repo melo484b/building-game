@@ -11,17 +11,17 @@ This is a project I like to work on in my spare time.
 - Buildings can only be placed on appropriate tiles
 - Citizens who aren't given food and water will starve and leave
 - Tooltips on buttons and icons
+- Placement constraint warnings
+- SFX
 - Relaxing soundtrack
 
 ## Unimplemented Features
-- GUI notices when certain events occur
 - Blacksmith building can be toggled to produce items or metal
 - Implement a use for gold
 - Resource nodes
-- SoundFX
-- Art
 
 ## Stretch Features
+- Art
 - Random events
 - Building destruction/consumtion
 
