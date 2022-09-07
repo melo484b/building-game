@@ -21,7 +21,6 @@ This is a project I like to work on in my spare time.
 - Resource nodes
 
 ## Stretch Features
-- Art
 - Random events
 - Building destruction/consumtion
 
