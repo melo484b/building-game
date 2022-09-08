@@ -2,6 +2,8 @@
 2D resource-gathering simulation, built with Godot. 
 This is a project I like to work on in my spare time.
 
+![BuildingGame_7SEP2022](https://user-images.githubusercontent.com/95886475/189016333-d22da950-5505-4430-aa15-ba16f630b6af.png)
+
 ## Features
 - Main menu
 - Resource panel to track resources available to the player
