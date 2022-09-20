@@ -2,6 +2,7 @@ extends Node2D
 
 onready var sprite: Sprite = $Sprite
 onready var area: Area2D = $Area2D
+var resource: String = "wood"
 
 func _ready():
 	sprite.frame = rand_range(0, 3)

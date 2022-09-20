@@ -22,6 +22,7 @@ var current_tile: int = -1
 
 func _ready():
 	hud.update_labels()
+	world.add_trees_to_world_nodes()
 
 func _on_TickTimer_timeout() -> void:
 	hud.update_labels()

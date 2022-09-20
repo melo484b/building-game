@@ -8,6 +8,9 @@ var timer: Timer
 # Resource that will be added to the PlayerResources
 var resource = null
 
+# Which resource does the building need to be located near? i.e. "wood"
+var node_required = null
+
 # Compatible tiles are as follows:
 # 12 - grass
 # 14 - sand
@@ -78,9 +81,15 @@ func consume_resources() -> void:
 
 # Used by children to compare compatible tiles to tiles returned by main's get_current_tile()
 func check_tile(tile_index, array_to_check) -> bool:
-	return tile_index in array_to_check
+	return (tile_index in array_to_check) and (WorldNodes.is_location_empty(self.position))
+	
+func check_for_nodes() -> bool:
+	if (node_required != null):
+		return WorldNodes.is_resource_node_in_range(self.position, node_required)
+	else:
+		return true
 
-# Clear remove position from array in WorldBuildings singleton then call queue_free()
+# Remove position from array in WorldNodes singleton then call queue_free()
 func destroy_building() -> void:
-	WorldBuildings.remove_building_location(self.position)
+	WorldNodes.remove_building_location(self.position)
 	self.queue_free()

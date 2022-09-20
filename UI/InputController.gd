@@ -59,21 +59,19 @@ func _input(_event):
 func place_building(building) -> void:
 	if (hud.main.selected_building != null):
 		var building_instance = hud.main.selected_building.instance()
-		if (building_instance.check_tile(hud.main.get_current_tile(), building_instance.compatible_tiles) and WorldBuildings.is_location_empty(hud.grid_snap())):
+		building_instance.position = hud.grid_snap()
+		if (building_instance.check_tile(hud.main.get_current_tile(), building_instance.compatible_tiles) and building_instance.check_for_nodes()):
 			if (recipes.compare_requirements(building_instance.recipe)):
-				building_instance.position = hud.grid_snap()
 				get_parent().get_parent().get_node("WorldMap").add_child(building_instance)
-				WorldBuildings.add_building_location(hud.grid_snap())
-				hud.main.world.check_locations(building_instance.position.y)
+				WorldNodes.add_building_location(hud.grid_snap())
+				hud.main.world.check_y_positions(building_instance.position.y)
 				recipes.use_recipe_ingredients(building_instance.recipe)
 				if (Input.is_action_pressed("place_multiple")):
 					pass
 				else:
 					end_building()
 			else:
-				sfx.error.play()
-				hud.notEnoughResources()
-				end_building()
+				not_enough_resources()
 		else:
 			hud.invalidPlacement()
 
@@ -95,3 +93,8 @@ func end_building() -> void:
 	is_building = false
 	grid_snap = false
 	buttons.set_visibility(true)
+	
+func not_enough_resources() -> void:
+	sfx.error.play()
+	hud.notEnoughResources()
+	end_building()

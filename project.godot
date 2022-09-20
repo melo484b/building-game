@@ -81,7 +81,7 @@ config/icon="res://icon.png"
 [autoload]
 
 PlayerResources="*res://Game/PlayerResources.gd"
-WorldBuildings="*res://World/WorldBuildings.gd"
+WorldNodes="*res://World/WorldNodes.gd"
 
 [display]
 

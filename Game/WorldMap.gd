@@ -8,18 +8,22 @@ onready var tree5: Node2D = $TreeNode5
 onready var tree6: Node2D = $TreeNode6
 onready var tree7: Node2D = $TreeNode7
 
-# TODO fix this
 var trees = []
 
-func _ready():
-	var trees = [tree1.position.y, tree2.position.y, tree3.position.y, tree4.position.y,
-	tree5.position.y, tree6.position.y, tree7.position.y]
 
-func check_locations(y_position: int) -> void:
+func _ready() -> void:
+	trees = [tree1, tree2, tree3, tree4,
+	tree5, tree6, tree7]
+	
+func check_y_positions(y_position: int) -> void:
 	if (trees != null):
 		for tree in trees:
-			if (y_position >= tree + 50):
+			if (y_position >= tree.position.y + 50):
 				tree.activate_transparency()
+
+func add_trees_to_world_nodes() -> void:
+	for tree in self.trees:
+		WorldNodes.add_resource_location(tree.position, "wood")
 
 func destroy_all_buildings() -> void:
 	var destroy_us = get_tree().get_nodes_in_group("building")
