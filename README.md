@@ -14,13 +14,13 @@ This is a project I like to work on in my spare time.
 - Citizens who aren't given food and water will starve and leave
 - Tooltips on buttons and icons
 - Placement constraint warnings
+- Resource nodes
 - SFX
 - Relaxing soundtrack
 
 ## Unimplemented Features
 - Blacksmith building can be toggled to produce items or metal
 - Implement a use for gold
-- Resource nodes
 
 ## Stretch Features
 - Random events
