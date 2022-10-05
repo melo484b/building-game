@@ -274,8 +274,8 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ShopPanel/HBoxContainer"]
-margin_left = 10.0
-margin_right = 30.0
+margin_left = 7.0
+margin_right = 27.0
 margin_bottom = 50.0
 
 [node name="water" type="TextureRect" parent="ShopPanel/HBoxContainer/VBoxContainer"]
@@ -308,8 +308,8 @@ theme = ExtResource( 8 )
 script = ExtResource( 25 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ShopPanel/HBoxContainer"]
-margin_left = 50.0
-margin_right = 70.0
+margin_left = 47.0
+margin_right = 67.0
 margin_bottom = 50.0
 
 [node name="food" type="TextureRect" parent="ShopPanel/HBoxContainer/VBoxContainer2"]
@@ -342,8 +342,8 @@ theme = ExtResource( 8 )
 script = ExtResource( 26 )
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="ShopPanel/HBoxContainer"]
-margin_left = 90.0
-margin_right = 110.0
+margin_left = 87.0
+margin_right = 107.0
 margin_bottom = 50.0
 
 [node name="wood" type="TextureRect" parent="ShopPanel/HBoxContainer/VBoxContainer3"]
@@ -376,8 +376,8 @@ theme = ExtResource( 8 )
 script = ExtResource( 27 )
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="ShopPanel/HBoxContainer"]
-margin_left = 130.0
-margin_right = 150.0
+margin_left = 127.0
+margin_right = 147.0
 margin_bottom = 50.0
 
 [node name="stone" type="TextureRect" parent="ShopPanel/HBoxContainer/VBoxContainer4"]
@@ -396,7 +396,7 @@ margin_top = 20.0
 margin_right = 20.0
 margin_bottom = 30.0
 theme = ExtResource( 8 )
-text = "8g"
+text = "6g"
 align = 1
 
 [node name="StoneButton" type="Button" parent="ShopPanel/HBoxContainer/VBoxContainer4"]
@@ -410,8 +410,8 @@ theme = ExtResource( 8 )
 script = ExtResource( 28 )
 
 [node name="VBoxContainer5" type="VBoxContainer" parent="ShopPanel/HBoxContainer"]
-margin_left = 170.0
-margin_right = 190.0
+margin_left = 167.0
+margin_right = 193.0
 margin_bottom = 50.0
 
 [node name="metal" type="TextureRect" parent="ShopPanel/HBoxContainer/VBoxContainer5"]
@@ -427,10 +427,10 @@ expand = true
 
 [node name="MetalLabel" type="Label" parent="ShopPanel/HBoxContainer/VBoxContainer5"]
 margin_top = 20.0
-margin_right = 20.0
+margin_right = 26.0
 margin_bottom = 30.0
 theme = ExtResource( 8 )
-text = "8g"
+text = "12g"
 align = 1
 
 [node name="MetalButton2" type="Button" parent="ShopPanel/HBoxContainer/VBoxContainer5"]
