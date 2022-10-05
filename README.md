@@ -18,9 +18,6 @@ This is a project I like to work on in my spare time.
 - SFX
 - Relaxing soundtrack
 
-## Unimplemented Features
-- Blacksmith building can be toggled to produce items or metal
-
 ## Stretch Features
 - Random events
 - Building destruction/consumtion
