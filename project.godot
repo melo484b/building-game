@@ -151,6 +151,10 @@ open_shop={
 
 2d_physics/layer_2="world"
 
+[mono]
+
+project/assembly_name="BuildingGame"
+
 [physics]
 
 common/enable_pause_aware_picking=true
