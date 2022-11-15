@@ -11,6 +11,9 @@ func _ready():
 	play.connect("pressed", self, "_on_play_button")
 	options.connect("pressed", self, "_on_options_button")
 	quit.connect("pressed", self, "_on_quit_button")
+	if OS.has_feature("HTML5"):
+		quit.visible = false
+		play.text = "Start"
 
 func _on_play_button() -> void:
 	menu.visible = false
@@ -18,6 +21,7 @@ func _on_play_button() -> void:
 	
 func _on_options_button() -> void:
 	pass
+	
 func _on_quit_button() -> void:
 	get_tree().quit()
 
